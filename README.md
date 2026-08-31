@@ -52,3 +52,77 @@ Upload only web-safe/watermarked copies.
 - Other/non-pixel art: `assets/art-web/other/`
 
 Do **not** upload clean master artwork to this public repository.
+
+
+## V6 — Pixel Art directory example images
+Upload these optional example images to `assets/images/pixel-directory/` using the exact names below. They automatically scale down to fit the webpage.
+
+- `static-custom.png`
+- `food-series.png`
+- `spinning.png`
+- `wiggly.png`
+- `simple-animated.png`
+- `custom-animated.png`
+- `sprites.png`
+- `pixel-headshots.png`
+
+Each Pixel Art category now has its own HTML page:
+- `static-custom.html`
+- `food-series.html`
+- `spinning.html`
+- `wiggly.html`
+- `simple-animated.html`
+- `custom-animated.html`
+- `sprites.html`
+- `pixel-headshots.html`
+
+The `pixel-art.html` page is only the directory.
+
+
+## V6 — Pixel Art directory example images
+Upload these optional example images to `assets/images/pixel-directory/` using the exact names below. They automatically scale down to fit the webpage.
+
+- `static-custom.png`
+- `food-series.png`
+- `spinning.png`
+- `wiggly.png`
+- `simple-animated.png`
+- `custom-animated.png`
+- `sprites.png`
+- `pixel-headshots.png`
+
+Each Pixel Art category now has its own HTML page:
+- `static-custom.html`
+- `food-series.html`
+- `spinning.html`
+- `wiggly.html`
+- `simple-animated.html`
+- `custom-animated.html`
+- `sprites.html`
+- `pixel-headshots.html`
+
+The `pixel-art.html` page is only the directory.
+
+
+## V7 — Pixel Art directory
+`pixel-art.html` now works like the `Other` directory: it shows simple category windows. Clicking a category opens its dedicated page.
+
+Dedicated Pixel Art pages remain:
+- `static-custom.html`
+- `food-series.html`
+- `spinning.html`
+- `wiggly.html`
+- `simple-animated.html`
+- `custom-animated.html`
+- `sprites.html`
+- `pixel-headshots.html`
+
+## V7 typography
+- Headings, navigation and UI labels: **Press Start 2P**
+- Paragraph/body text: **DotGothic16**
+
+## V7 art protection
+The site intercepts right-clicks and image dragging on gallery art, enlarged viewers and displayed image assets. This is a deterrent only; anything shown in a browser can still be screenshotted or retrieved by a determined visitor.
+
+## V7 scroll animation
+Cards and sections fade in when they enter the viewport and fade out after they leave, so the effect works when scrolling both down and back up.

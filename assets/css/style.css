@@ -54,3 +54,85 @@ body{font-family:'Pixelify Sans',system-ui,sans-serif!important;font-size:16px}.
 @media(max-width:900px){.nav-item{display:grid;grid-template-columns:1fr 34px}.nav-item .dropdown{grid-column:1/-1}.nav-parent{width:100%}.nav-drop-toggle{width:34px}.page-hero-grid{grid-template-columns:1fr 180px}.gallery-section .gallery,.commissioned-gallery{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:650px){.home-hero-inner{grid-template-columns:1fr}.hero-decor-bare{justify-self:center;width:min(300px,86%)}.page-hero-grid{grid-template-columns:1fr}.page-decor-image{max-width:180px;justify-self:start}.gallery-section .gallery,.commissioned-gallery{grid-template-columns:repeat(2,1fr)}.gallery-section-head,.info-summary{gap:10px;padding:15px}.gallery-section-head .section-decor-image,.info-summary .section-decor-image{max-width:80px;max-height:70px}.collapse-mark{width:27px;height:27px}.info-body{padding:18px}.status-decor{display:none}}
 @media(prefers-reduced-motion:reduce){.hero-decor-image{animation:none}}
+
+/* ================= V6: directory pages + friendlier heavy retro shell ================= */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Silkscreen:wght@400;700&display=swap');
+:root{--outline-heavy:3px;--outline-soft:rgba(204,214,240,.42);--outline-bright:rgba(222,229,248,.72)}
+body{font-family:'IBM Plex Mono',monospace}
+h1,h2,h3,.brand,.main-nav,.button,.eyebrow,.window-label,.card-number,.viewer-label,.directory-number,.directory-name{font-family:'Silkscreen',monospace;letter-spacing:-.02em}
+/* heavier outlines */
+.site-header{border-bottom:var(--outline-heavy) solid var(--outline-soft)!important;box-shadow:0 4px 0 rgba(0,0,0,.30)!important}
+.retro-window,.category-card,.info-card,.status-panel,.art-card,.loose-piece,.art-viewer,.viewer-panel,.empty-state,.pixel-directory-row{border-width:var(--outline-heavy)!important;box-shadow:6px 6px 0 rgba(4,8,14,.52)!important}
+.button,.main-nav>a,.nav-parent,.subpage-links a,.pixel-section-jump a{border-width:2px!important}
+/* desktop nav: hover dropdown, no arrow controls */
+.nav-drop-toggle{display:none!important}.nav-item{position:relative}.nav-item>.nav-parent{display:flex;align-items:center;height:100%}.nav-item>.dropdown{display:none;position:absolute;left:0;top:calc(100% + 0px);min-width:230px;z-index:80;border:3px solid var(--outline-bright);background:rgba(15,21,31,.97);box-shadow:6px 6px 0 rgba(3,7,12,.55);padding:7px}.nav-item:hover>.dropdown,.nav-item:focus-within>.dropdown{display:grid}.dropdown a{border:0!important;border-bottom:1px solid rgba(210,220,244,.16)!important;padding:10px 12px!important}.dropdown a:last-child{border-bottom:0!important}
+/* responsive image fit: decorative assets never spill outside the viewport */
+.hero-decor-bare{width:min(38vw,440px);max-width:100%;min-width:0}.hero-decor-image{width:100%!important;height:auto!important;max-width:100%!important;max-height:min(62vh,560px)!important;object-fit:contain!important}
+.page-decor-slot{width:min(30vw,340px);max-width:100%;min-width:0;display:grid;place-items:end}.page-decor-image{display:block;width:100%!important;height:auto!important;max-width:100%!important;max-height:min(32vh,250px)!important;object-fit:contain!important}.section-decor-image{width:auto;max-width:min(28vw,170px)!important;height:auto;max-height:115px!important;object-fit:contain!important}
+/* Pixel directory */
+.pixel-directory{display:grid;gap:16px}.pixel-directory .section-heading{margin-bottom:4px}.pixel-directory-row{overflow:hidden;background:rgba(255,255,255,.065)!important}.pixel-directory-row>summary{list-style:none;display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:14px;align-items:center;min-height:64px;padding:12px 16px;cursor:pointer;background:rgba(255,255,255,.075);border-bottom:0}.pixel-directory-row>summary::-webkit-details-marker{display:none}.pixel-directory-row[open]>summary{border-bottom:3px solid var(--outline-soft)}.directory-number{display:grid;place-items:center;width:38px;height:34px;border:2px solid var(--outline-soft);background:rgba(140,152,189,.16);font-size:11px}.directory-name{color:#f7f9ff;text-decoration:none;font-size:16px}.directory-name:hover{text-decoration:underline;text-underline-offset:4px}.directory-hint{font-size:11px;color:var(--muted)}.directory-preview{display:grid;grid-template-columns:minmax(0,1fr) minmax(160px,320px);gap:26px;align-items:center;padding:22px 24px}.directory-copy p{margin:0 0 16px;color:var(--muted);line-height:1.75}.button.small{padding:8px 11px;font-size:11px}.directory-example{min-height:150px;max-height:230px;display:grid;place-items:center;overflow:hidden;background:rgba(255,255,255,.035);border:2px solid rgba(204,214,240,.26);padding:10px}.directory-example img{display:block;max-width:100%;max-height:205px;width:auto;height:auto;object-fit:contain}.directory-example .missing-copy{display:none;text-align:center;color:var(--muted);font-size:11px;line-height:1.7}.directory-example.missing .missing-copy{display:block}.directory-example code{color:var(--blue2)}
+.single-category-gallery{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.subpage-toolbar{margin-bottom:20px}.subpage-toolbar a{color:var(--blue2);text-decoration:none}.subpage-toolbar a:hover{text-decoration:underline}
+/* Information: no minus/plus glyph when open or closed */
+.collapsible-info .collapse-mark{display:none!important}.info-summary{cursor:pointer!important;border-bottom-width:3px!important}.collapsible-info:not([open]) .info-summary{border-bottom:0!important}
+/* Other galleries: make all displayed art visibly protected and constrain popup */
+.loose-image img,.large-other-stage img,.art-thumb img{user-select:none;-webkit-user-drag:none}.large-other-stage{border-width:3px!important}
+@media(max-width:900px){.nav-item>.dropdown{position:static;display:none;grid-column:1/-1;box-shadow:none;border-width:2px;margin-top:4px}.nav-item:hover>.dropdown{display:none}.nav-item:focus-within>.dropdown{display:grid}.nav-item.open>.dropdown{display:grid}.nav-item{display:block}.nav-parent{width:100%}.single-category-gallery{grid-template-columns:repeat(3,minmax(0,1fr))}.directory-preview{grid-template-columns:1fr 220px}.hero-decor-bare{width:min(46vw,360px)}.page-decor-slot{width:min(34vw,260px)}}
+@media(max-width:650px){.hero-decor-bare{width:min(82vw,330px)}.page-decor-slot{width:min(62vw,220px);place-items:start}.directory-preview{grid-template-columns:1fr}.directory-hint{display:none}.pixel-directory-row>summary{grid-template-columns:42px 1fr}.single-category-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.section-decor-image{max-width:min(42vw,130px)!important}}
+
+/* ================= V6: directory pages + friendlier heavy retro shell ================= */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Silkscreen:wght@400;700&display=swap');
+:root{--outline-heavy:3px;--outline-soft:rgba(204,214,240,.42);--outline-bright:rgba(222,229,248,.72)}
+body{font-family:'IBM Plex Mono',monospace}
+h1,h2,h3,.brand,.main-nav,.button,.eyebrow,.window-label,.card-number,.viewer-label,.directory-number,.directory-name{font-family:'Silkscreen',monospace;letter-spacing:-.02em}
+/* heavier outlines */
+.site-header{border-bottom:var(--outline-heavy) solid var(--outline-soft)!important;box-shadow:0 4px 0 rgba(0,0,0,.30)!important}
+.retro-window,.category-card,.info-card,.status-panel,.art-card,.loose-piece,.art-viewer,.viewer-panel,.empty-state,.pixel-directory-row{border-width:var(--outline-heavy)!important;box-shadow:6px 6px 0 rgba(4,8,14,.52)!important}
+.button,.main-nav>a,.nav-parent,.subpage-links a,.pixel-section-jump a{border-width:2px!important}
+/* desktop nav: hover dropdown, no arrow controls */
+.nav-drop-toggle{display:none!important}.nav-item{position:relative}.nav-item>.nav-parent{display:flex;align-items:center;height:100%}.nav-item>.dropdown{display:none;position:absolute;left:0;top:calc(100% + 0px);min-width:230px;z-index:80;border:3px solid var(--outline-bright);background:rgba(15,21,31,.97);box-shadow:6px 6px 0 rgba(3,7,12,.55);padding:7px}.nav-item:hover>.dropdown,.nav-item:focus-within>.dropdown{display:grid}.dropdown a{border:0!important;border-bottom:1px solid rgba(210,220,244,.16)!important;padding:10px 12px!important}.dropdown a:last-child{border-bottom:0!important}
+/* responsive image fit: decorative assets never spill outside the viewport */
+.hero-decor-bare{width:min(38vw,440px);max-width:100%;min-width:0}.hero-decor-image{width:100%!important;height:auto!important;max-width:100%!important;max-height:min(62vh,560px)!important;object-fit:contain!important}
+.page-decor-slot{width:min(30vw,340px);max-width:100%;min-width:0;display:grid;place-items:end}.page-decor-image{display:block;width:100%!important;height:auto!important;max-width:100%!important;max-height:min(32vh,250px)!important;object-fit:contain!important}.section-decor-image{width:auto;max-width:min(28vw,170px)!important;height:auto;max-height:115px!important;object-fit:contain!important}
+/* Pixel directory */
+.pixel-directory{display:grid;gap:16px}.pixel-directory .section-heading{margin-bottom:4px}.pixel-directory-row{overflow:hidden;background:rgba(255,255,255,.065)!important}.pixel-directory-row>summary{list-style:none;display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:14px;align-items:center;min-height:64px;padding:12px 16px;cursor:pointer;background:rgba(255,255,255,.075);border-bottom:0}.pixel-directory-row>summary::-webkit-details-marker{display:none}.pixel-directory-row[open]>summary{border-bottom:3px solid var(--outline-soft)}.directory-number{display:grid;place-items:center;width:38px;height:34px;border:2px solid var(--outline-soft);background:rgba(140,152,189,.16);font-size:11px}.directory-name{color:#f7f9ff;text-decoration:none;font-size:16px}.directory-name:hover{text-decoration:underline;text-underline-offset:4px}.directory-hint{font-size:11px;color:var(--muted)}.directory-preview{display:grid;grid-template-columns:minmax(0,1fr) minmax(160px,320px);gap:26px;align-items:center;padding:22px 24px}.directory-copy p{margin:0 0 16px;color:var(--muted);line-height:1.75}.button.small{padding:8px 11px;font-size:11px}.directory-example{min-height:150px;max-height:230px;display:grid;place-items:center;overflow:hidden;background:rgba(255,255,255,.035);border:2px solid rgba(204,214,240,.26);padding:10px}.directory-example img{display:block;max-width:100%;max-height:205px;width:auto;height:auto;object-fit:contain}.directory-example .missing-copy{display:none;text-align:center;color:var(--muted);font-size:11px;line-height:1.7}.directory-example.missing .missing-copy{display:block}.directory-example code{color:var(--blue2)}
+.single-category-gallery{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.subpage-toolbar{margin-bottom:20px}.subpage-toolbar a{color:var(--blue2);text-decoration:none}.subpage-toolbar a:hover{text-decoration:underline}
+/* Information: no minus/plus glyph when open or closed */
+.collapsible-info .collapse-mark{display:none!important}.info-summary{cursor:pointer!important;border-bottom-width:3px!important}.collapsible-info:not([open]) .info-summary{border-bottom:0!important}
+/* Other galleries: make all displayed art visibly protected and constrain popup */
+.loose-image img,.large-other-stage img,.art-thumb img{user-select:none;-webkit-user-drag:none}.large-other-stage{border-width:3px!important}
+@media(max-width:900px){.nav-item>.dropdown{position:static;display:none;grid-column:1/-1;box-shadow:none;border-width:2px;margin-top:4px}.nav-item:hover>.dropdown{display:none}.nav-item:focus-within>.dropdown{display:grid}.nav-item.open>.dropdown{display:grid}.nav-item{display:block}.nav-parent{width:100%}.single-category-gallery{grid-template-columns:repeat(3,minmax(0,1fr))}.directory-preview{grid-template-columns:1fr 220px}.hero-decor-bare{width:min(46vw,360px)}.page-decor-slot{width:min(34vw,260px)}}
+@media(max-width:650px){.hero-decor-bare{width:min(82vw,330px)}.page-decor-slot{width:min(62vw,220px);place-items:start}.directory-preview{grid-template-columns:1fr}.directory-hint{display:none}.pixel-directory-row>summary{grid-template-columns:42px 1fr}.single-category-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.section-decor-image{max-width:min(42vw,130px)!important}}
+
+/* ================= V7: typography + simple pixel directory + bidirectional fades ================= */
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap');
+
+body, p, li, td, th, input, textarea, select, figcaption, .page-intro, .home-lede, .dropdown a, .commissioner, .copy-hint, .viewer-meta, .other-description, .art-protection-notice small {
+  font-family:'DotGothic16',system-ui,sans-serif !important;
+}
+h1,h2,h3,h4,.brand,.main-nav>a,.nav-parent,.button,.eyebrow,.window-label,.card-number,.viewer-label,.filter-btn,.lightbox-close,.menu-toggle {
+  font-family:'Press Start 2P',monospace !important;
+  font-weight:400 !important;
+  letter-spacing:0 !important;
+}
+/* Keep tiny UI labels readable in Press Start 2P */
+.eyebrow,.window-label,.card-number,.viewer-label,.filter-btn,.dropdown .nav-label {line-height:1.65}
+.cover-content h1{line-height:1.18;letter-spacing:0!important}.home-title{line-height:1.16;letter-spacing:0!important}
+.category-card h3,.art-card h3{line-height:1.5}
+
+/* Pixel Art directory now mirrors Other: simple category windows linking to dedicated pages. */
+.pixel-category-directory{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.pixel-category-directory .category-card{min-height:205px}
+.pixel-category-directory .category-card h3{font-size:clamp(13px,1.5vw,18px);margin-top:34px}
+.pixel-category-directory .category-card p{font-family:'DotGothic16',sans-serif!important;font-size:15px;line-height:1.8}
+
+/* Fade in when entering from either scroll direction, fade out after leaving. */
+.reveal{opacity:0!important;transform:translateY(18px) scale(.992);transition:opacity .46s ease,transform .55s cubic-bezier(.2,.76,.2,1);will-change:opacity,transform}
+.reveal.shown{opacity:1!important;transform:translateY(0) scale(1)}
+.reveal.fade-above{transform:translateY(-18px) scale(.992)}
+.reveal.fade-below{transform:translateY(18px) scale(.992)}
+
+/* Art protection applies to every rendered art surface and overlay. */
+img,.art-thumb,.loose-image,.large-other-stage,.upscaled-stage,.actual-stage,.viewer-stage,.art-viewer,.loose-piece{ -webkit-user-drag:none; user-select:none; -webkit-user-select:none }
+
+@media(max-width:700px){.pixel-category-directory{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.reveal,.reveal.fade-above,.reveal.fade-below,.reveal.shown{opacity:1!important;transform:none!important;transition:none!important}}

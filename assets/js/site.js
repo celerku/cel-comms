@@ -8,21 +8,45 @@ function applyContent(){
 applyContent();
 const toggle=document.querySelector('.menu-toggle'),nav=document.querySelector('.main-nav');
 toggle?.addEventListener('click',()=>nav?.classList.toggle('open'));
-document.querySelectorAll('.nav-drop-toggle[data-dropdown]').forEach(btn=>btn.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();btn.closest('.nav-item')?.classList.toggle('open')}));
-document.addEventListener('click',e=>{if(!e.target.closest('.nav-item'))document.querySelectorAll('.nav-item.open').forEach(x=>x.classList.remove('open'))});
-// keep collapse symbols friendly and obvious
-function syncCollapse(d){const mark=d.querySelector(':scope > summary .collapse-mark');if(mark)mark.textContent=d.open?'−':'+'}
-document.querySelectorAll('.gallery-section,.collapsible-info').forEach(d=>{syncCollapse(d);d.addEventListener('toggle',()=>syncCollapse(d))});
-// sparse, chunky rain across every page
-(function makeRain(){const layer=document.createElement('div');layer.className='global-rain';layer.setAttribute('aria-hidden','true');const count=window.innerWidth<650?16:29;for(let i=0;i<count;i++){const d=document.createElement('i');d.style.left=(Math.random()*100)+'vw';d.style.height=(22+Math.random()*46)+'px';d.style.width=(2.4+Math.random()*2.8)+'px';d.style.animationDuration=(2.15+Math.random()*3.25)+'s';d.style.animationDelay=(-Math.random()*6)+'s';d.style.opacity=(.11+Math.random()*.25).toFixed(2);d.style.transform=`translateY(-90px) rotate(${8+Math.random()*8}deg)`;layer.appendChild(d)}document.body.prepend(layer)})();
-// soft reveal animations
-const revealTargets=document.querySelectorAll('.category-card,.info-card,.status-panel,.art-card,.loose-piece,.section-heading,.page-intro,.subpage-links,.gallery-section');
-revealTargets.forEach(x=>x.classList.add('reveal'));
-if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('shown');io.unobserve(e.target)}}),{threshold:.06});revealTargets.forEach(x=>io.observe(x))}else revealTargets.forEach(x=>x.classList.add('shown'));
-// every visible image on the site gets the same right-click warning
+// Mobile only: tapping the empty part of a nav item can reveal its submenu; the name itself remains a normal link.
+document.querySelectorAll('.nav-item').forEach(item=>item.addEventListener('click',e=>{if(window.innerWidth<=900&&e.target===item){item.classList.toggle('open')}}));
+// Sparse, chunky rain across every page.
+(function makeRain(){const layer=document.createElement('div');layer.className='global-rain';layer.setAttribute('aria-hidden','true');const count=window.innerWidth<650?12:22;for(let i=0;i<count;i++){const d=document.createElement('i');d.style.left=(Math.random()*100)+'vw';d.style.height=(24+Math.random()*58)+'px';d.style.width=(2.8+Math.random()*3.4)+'px';d.style.animationDuration=(2.4+Math.random()*4.2)+'s';d.style.animationDelay=(-Math.random()*8)+'s';d.style.opacity=(.10+Math.random()*.20).toFixed(2);d.style.transform=`translateY(-110px) rotate(${7+Math.random()*9}deg)`;layer.appendChild(d)}document.body.prepend(layer)})();
+// Fade elements in whenever they enter the viewport and back out when they leave, in either scroll direction.
+const revealTargets=document.querySelectorAll('.category-card,.info-card,.status-panel,.art-card,.loose-piece,.section-heading,.page-intro,.subpage-links,.single-category-gallery,.pixel-category-directory');
+revealTargets.forEach(x=>x.classList.add('reveal','fade-below'));
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(entries=>entries.forEach(entry=>{
+    const el=entry.target;
+    if(entry.isIntersecting){
+      el.classList.add('shown');
+      el.classList.remove('fade-above','fade-below');
+    }else{
+      el.classList.remove('shown');
+      const r=entry.boundingClientRect;
+      if(r.bottom < 0){el.classList.add('fade-above');el.classList.remove('fade-below')}
+      else {el.classList.add('fade-below');el.classList.remove('fade-above')}
+    }
+  }),{threshold:.08,rootMargin:'0px 0px -4% 0px'});
+  revealTargets.forEach(x=>io.observe(x));
+}else revealTargets.forEach(x=>x.classList.add('shown'));
+// Robust right-click protection on every art/image surface, including dynamically-created lightboxes.
 let protectTimer;
 function protectionNotice(){let n=document.querySelector('.art-protection-notice');if(!n){n=document.createElement('div');n.className='art-protection-notice';n.innerHTML='<span class="notice-pixel">✦</span><div><strong>Please don\'t download or repost my art.</strong><small>Artwork © @celerku · thank you for respecting my work ♡</small></div>';document.body.appendChild(n)}n.classList.add('show');clearTimeout(protectTimer);protectTimer=setTimeout(()=>n.classList.remove('show'),2400)}
-document.addEventListener('contextmenu',e=>{if(e.target.tagName==='IMG'){e.preventDefault();protectionNotice()}});
-document.addEventListener('dragstart',e=>{if(e.target.tagName==='IMG')e.preventDefault()});
-// highlight current Other subpage
+const protectedSelector='img, .art-card, .art-thumb, .loose-piece, .loose-image, .art-viewer, .viewer-stage, .large-other-stage, .upscaled-stage, .actual-stage, .hero-decor-bare, .page-decor-slot, .directory-example';
+function isProtectedArtTarget(target){
+  return !!(target && target.closest && target.closest(protectedSelector));
+}
+document.addEventListener('contextmenu',e=>{
+  if(!isProtectedArtTarget(e.target)) return;
+  e.preventDefault();
+  e.stopImmediatePropagation();
+  protectionNotice();
+},true);
+document.addEventListener('dragstart',e=>{
+  if(!isProtectedArtTarget(e.target)) return;
+  e.preventDefault();
+  e.stopImmediatePropagation();
+},true);
+// Delegation from document means art inserted later by gallery/lightbox scripts is protected too.
 const current=location.pathname.split('/').pop()||'index.html';document.querySelectorAll('[data-subpage]').forEach(a=>{if(a.dataset.subpage===current)a.classList.add('active')});
