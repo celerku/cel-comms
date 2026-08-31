@@ -1,11 +1,7 @@
-const wrap=document.querySelector('#premade-gallery'),empty=document.querySelector('#premade-empty');
+const wrap=document.querySelector('#premade-gallery');
 const premades=ARTWORKS.filter(a=>a.premade);
 function esc(s=''){return String(s).replace(/[&<>'"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[m]))}
-if(premades.length){
-  empty.style.display='none';
-  premades.forEach(a=>{
-    const c=document.createElement('article');c.className='art-card pixel-window';
-    c.innerHTML=`<div class="window-bar"><span class="window-dots"><i></i><i></i><i></i></span><span>premade</span></div><div class="art-thumb">${a.file?`<img src="assets/art-web/${encodeURI(a.file)}" alt="${esc(a.title)}" draggable="false"><div class="art-watermark">@celerku</div>`:'<div class="art-placeholder">✦<small>add art</small></div>'}</div><div class="art-info"><div><h3>${esc(a.title)}</h3><p>${esc(a.dimensions||'dimensions not set')}</p>${a.commissioner?`<p class="commissioner">commissioner · ${esc(a.commissioner)}</p>`:''}</div></div>`;
-    wrap.appendChild(c);
-  });
-}else{wrap.style.display='none'}
+function openPremade(a){if(!a.file)return;const box=document.querySelector('#lightbox'),src=`assets/art-web/${a.file}`,actual=document.querySelector('#actual-img');document.querySelector('#lightbox-img').src=src;actual.src=src;if(a.nativeWidth&&a.nativeHeight){actual.style.width=a.nativeWidth+'px';actual.style.height=a.nativeHeight+'px'}else{actual.style.width='auto';actual.style.height='auto'}document.querySelector('#lightbox-title').textContent=a.title;document.querySelector('#lightbox-meta').textContent=[a.dimensions,a.commissioner?`commissioner · ${a.commissioner}`:''].filter(Boolean).join(' · ');box.classList.add('open');box.setAttribute('aria-hidden','false')}
+function closePremade(){const box=document.querySelector('#lightbox');box?.classList.remove('open');box?.setAttribute('aria-hidden','true')}
+if(wrap){if(!premades.length){wrap.innerHTML='<div class="empty-state">No premades are listed right now.</div>'}else premades.forEach(a=>{const c=document.createElement('article');c.className='art-card pixel-window retro-window';c.innerHTML=`<div class="window-bar"><span class="window-dots"><i></i><i></i><i></i></span><span>premade</span></div><div class="art-thumb">${a.file?`<img src="assets/art-web/${encodeURI(a.file)}" alt="${esc(a.title)}" draggable="false"><div class="art-watermark">@celerku</div>`:'<div class="art-placeholder">✦<small>add art</small></div>'}</div><div class="art-info"><div><h3>${esc(a.title)}</h3><p>${esc(a.dimensions||'dimensions not set')}</p></div><button class="view-art" type="button" ${a.file?'':'disabled'}>VIEW</button></div>`;c.querySelector('.view-art')?.addEventListener('click',()=>openPremade(a));wrap.appendChild(c)})}
+document.querySelector('#lightbox .lightbox-close')?.addEventListener('click',closePremade);document.querySelector('#lightbox')?.addEventListener('click',e=>{if(e.target.id==='lightbox')closePremade()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closePremade()});

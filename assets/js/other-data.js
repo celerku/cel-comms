@@ -1,8 +1,10 @@
-// NON-PIXEL / OTHER GALLERY DATA
-// IMPORTANT: upload ONLY prepared/watermarked web copies to assets/art-web/other/.
-// Keep clean originals on your own computer.
-// page options: commissioned-artists, oc-fanart, my-ocs, random-art, digital-commissions
+// OTHER / NON-PIXEL GALLERY DATA
+// Upload ONLY web-safe copies to assets/art-web/other/. Keep originals private.
+//
+// All pages support: page, title, file, description.
+// Optional: artist, dimensions, nativeWidth, nativeHeight, copyable.
+// For commissioned-artists, artist is shown where Pixel Art normally shows commissioner.
 const OTHER_ART = [
-  // { page:"my-ocs", title:"Character name", file:"other/example.png", artist:"@celerku", note:"optional note" },
-  // { page:"oc-fanart", title:"Gift art", file:"other/gift.png", artist:"ArtistName", note:"" }
+  // { page:"commissioned-artists", title:"Avatar name", file:"other/avatar.png", artist:"ArtistName", dimensions:"52 × 52 px", nativeWidth:52, nativeHeight:52, copyable:true, description:"Optional longer description." },
+  // { page:"my-ocs", title:"Beryl", file:"other/beryl.jpg", artist:"@celerku", description:"Character description shown in the popup." },
 ];
