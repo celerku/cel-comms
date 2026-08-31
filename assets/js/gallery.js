@@ -15,7 +15,7 @@ function showCopyToast(message){let t=document.querySelector('#copy-toast');if(!
 
 function card(a){
   const c=document.createElement('article');c.className='art-card pixel-window'+(a.copyable?' is-copyable':'');c.tabIndex=0;
-  const media=a.file?`<img src="assets/art/${encodeURI(a.file)}" alt="${esc(a.title)}" draggable="false"><div class="art-watermark">@celerku</div>`:`<div class="art-placeholder"><span>✦</span><small>add art</small></div>`;
+  const media=a.file?`<img src="assets/art-web/${encodeURI(a.file)}" alt="${esc(a.title)}" draggable="false"><div class="art-watermark">@celerku</div>`:`<div class="art-placeholder"><span>✦</span><small>add art</small></div>`;
   const commissioner=a.commissioner?`<p class="commissioner">commissioner · ${esc(a.commissioner)}</p>`:'';
   const copyHint=a.copyable?`<span class="copy-hint">click card to copy name</span>`:`<span class="copy-hint disabled">copy disabled</span>`;
   c.innerHTML=`<div class="window-bar"><span class="window-dots"><i></i><i></i><i></i></span><span>${esc(labels[a.category]||a.category)}</span></div><div class="art-thumb">${media}</div><div class="art-info"><div><h3>${esc(a.title)}</h3><p>${esc(a.dimensions||'dimensions not set')}</p>${commissioner}</div><button class="view-art" type="button" ${a.file?'':'disabled'}>VIEW</button></div><div class="card-foot">${copyHint}</div>`;
@@ -25,7 +25,7 @@ function card(a){
   return c;
 }
 function renderGallery(){if(!gallery)return;gallery.innerHTML='';ARTWORKS.filter(a=>active==='all'||a.category===active).forEach(a=>gallery.appendChild(card(a)))}
-function openLightbox(a){if(!a.file)return;const box=document.querySelector('#lightbox'),src=`assets/art/${a.file}`;document.querySelector('#lightbox-img').src=src;document.querySelector('#actual-img').src=src;document.querySelector('#lightbox-title').textContent=a.title;document.querySelector('#lightbox-meta').textContent=[a.dimensions,a.commissioner?`commissioner · ${a.commissioner}`:''].filter(Boolean).join(' · ');box.classList.add('open');box.setAttribute('aria-hidden','false')}
+function openLightbox(a){if(!a.file)return;const box=document.querySelector('#lightbox'),src=`assets/art-web/${a.file}`,actual=document.querySelector('#actual-img');document.querySelector('#lightbox-img').src=src;actual.src=src;if(a.nativeWidth&&a.nativeHeight){actual.style.width=`${a.nativeWidth}px`;actual.style.height=`${a.nativeHeight}px`}else{actual.style.width='auto';actual.style.height='auto'}document.querySelector('#lightbox-title').textContent=a.title;document.querySelector('#lightbox-meta').textContent=[a.dimensions,a.commissioner?`commissioner · ${a.commissioner}`:''].filter(Boolean).join(' · ');box.classList.add('open');box.setAttribute('aria-hidden','false')}
 function closeLightbox(){const box=document.querySelector('#lightbox');box?.classList.remove('open');box?.setAttribute('aria-hidden','true')}
 document.querySelector('.lightbox-close')?.addEventListener('click',closeLightbox);document.querySelector('#lightbox')?.addEventListener('click',e=>{if(e.target.id==='lightbox')closeLightbox()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
 renderFilters();renderGallery();
