@@ -1,67 +1,48 @@
-# Cel art site — GitHub Pages version
+# Cel art site — dark indie pixel v2
 
-This is a static HTML/CSS/JS site designed for GitHub Pages.
-
-## Colour + style
-- Main accent: `#8C98BD`
-- White / very pale blue backgrounds
-- Darkened art cover image behind page titles
-- Animated rain on the home page
-- Responsive mobile navigation
-
-## Add your cover image
-Put your preferred banner/cover artwork in:
-
-`assets/images/cover.jpg`
-
-Use a reasonably wide image (for example 1600 × 700 px or larger). The CSS automatically darkens the image so the white title stays readable.
-
-## Add artwork
-1. Put your PNG/GIF/WebP inside `assets/art/`.
+## Uploading pixel art
+1. Put the image/GIF in `assets/art/`.
 2. Open `assets/js/art-data.js`.
-3. Add an object such as:
+3. Add an entry like:
 
 ```js
 {
-  title: "Blue Witch",
+  title: "Cat",
+  commissioner: "ExampleUser", // optional: use "" to hide
+  dimensions: "52 × 52 px",    // type this manually
   category: "static-custom",
-  file: "blue-witch.png",
-  meta: "52 × 52 · Static Custom",
+  file: "cat.png",
+  copyable: true,               // card click copies [[Cat]]
   premade: false
 }
 ```
 
-Available categories:
-- `static-custom`
-- `food-series`
-- `spinning`
-- `wiggly`
-- `simple-animated`
-- `custom-animated`
-- `sprites`
-- `pixel-headshots`
+`title` is copied with the exact same spelling and capitalisation, wrapped in double square brackets. Set `copyable: false` to turn this off for a specific piece.
 
-Set `premade: true` if the artwork should also appear on the Premades page.
+Clicking the card copies the name. Clicking its `VIEW` button opens the enlarged preview + true 1:1 version.
 
-### Artwork display
-Gallery thumbnails include a low-opacity `@celerku` overlay. Clicking an artwork opens:
-- a large pixel-perfect upscaled preview with watermark
-- an exact 1:1 native-size preview
+## Other galleries
+Put non-pixel files under `assets/art/other/` (create it if needed), then edit `assets/js/other-data.js`.
 
-The watermark is an HTML/CSS overlay. It does **not** permanently alter your source art file.
+Page values:
+- `commissioned-artists`
+- `oc-fanart`
+- `my-ocs`
+- `random-art`
+- `digital-commissions`
 
-## Update prices
-Edit the table inside `information.html`. Replace every `Add price` cell with your real price. You can add rows for extras, animation, rush fees, commercial use, etc.
+Example:
+```js
+{ page:"my-ocs", title:"Cel", file:"other/cel.png", artist:"@celerku", note:"optional note" }
+```
 
-## Publish on GitHub Pages
-1. Create a GitHub repository.
-2. Upload everything in this folder to the repository root.
-3. In the repository, go to **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**.
-5. Select the `main` branch and `/ (root)` folder.
-6. Save.
+These galleries use a loose masonry-style layout instead of identical square cards.
 
-GitHub will give you your Pages URL once deployment is complete.
+## Cover image
+Add your cover art as:
+`assets/images/cover.jpg`
 
-## Artwork protection note
-The site blocks right-clicking and dragging on gallery images and shows a polite “please don’t download/repost” notice. This is only a deterrent: any image displayed in a browser can still be copied by a determined visitor. The visible @celerku watermark and publishing only web-sized previews provide stronger practical protection.
+The site automatically adds a dark overlay so white headings remain readable.
+
+## GitHub Pages update
+Upload/replace these files in your `cel-comms` repository and commit. GitHub Pages will redeploy automatically.

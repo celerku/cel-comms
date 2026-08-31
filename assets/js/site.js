@@ -1,33 +1,8 @@
-document.querySelector('#year')?.append(new Date().getFullYear());
+document.querySelector('#year') && (document.querySelector('#year').textContent=new Date().getFullYear());
 const toggle=document.querySelector('.menu-toggle'),nav=document.querySelector('.main-nav');
-toggle?.addEventListener('click',()=>nav.classList.toggle('open'));
-
-// Gentle artwork protection. This discourages casual saving, but no browser-side
-// method can completely prevent copying an image that is visible on a webpage.
-const protectableImageSelector='.art-thumb img, .upscaled-stage img, .actual-stage img';
+toggle?.addEventListener('click',()=>nav?.classList.toggle('open'));
+document.querySelectorAll('.nav-link[data-dropdown]').forEach(btn=>btn.addEventListener('click',e=>{if(window.innerWidth<=900){e.preventDefault();btn.closest('.nav-item').classList.toggle('open')}}));
 let protectTimer;
-function showArtNotice(){
-  let notice=document.querySelector('#art-protection-notice');
-  if(!notice){
-    notice=document.createElement('div');
-    notice.id='art-protection-notice';
-    notice.className='art-protection-notice';
-    notice.setAttribute('role','status');
-    notice.setAttribute('aria-live','polite');
-    notice.innerHTML=`<span class="notice-pixel">✦</span><div><strong>Please don’t download or repost my art.</strong><small>Artwork © @celerku · thank you for respecting my work ♡</small></div>`;
-    document.body.appendChild(notice);
-  }
-  notice.classList.add('show');
-  clearTimeout(protectTimer);
-  protectTimer=setTimeout(()=>notice.classList.remove('show'),2800);
-}
-
-document.addEventListener('contextmenu',e=>{
-  if(e.target.matches?.(protectableImageSelector)){
-    e.preventDefault();
-    showArtNotice();
-  }
-});
-document.addEventListener('dragstart',e=>{
-  if(e.target.matches?.(protectableImageSelector)) e.preventDefault();
-});
+function protectionNotice(){let n=document.querySelector('.art-protection-notice');if(!n){n=document.createElement('div');n.className='art-protection-notice';n.innerHTML='<span class="notice-pixel">✦</span><div><strong>Please don\'t download or repost my art.</strong><small>Artwork © @celerku · thank you for respecting my work ♡</small></div>';document.body.appendChild(n)}n.classList.add('show');clearTimeout(protectTimer);protectTimer=setTimeout(()=>n.classList.remove('show'),2400)}
+document.addEventListener('contextmenu',e=>{if(e.target.closest('.art-thumb,.upscaled-stage,.actual-stage,.loose-image')){e.preventDefault();protectionNotice()}});
+document.addEventListener('dragstart',e=>{if(e.target.matches('.art-thumb img,.upscaled-stage img,.actual-stage img,.loose-image img'))e.preventDefault()});
