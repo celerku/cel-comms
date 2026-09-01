@@ -536,39 +536,50 @@ footer::before,.site-footer::before{
 }
 
 
-/* ================= V11.1: title-bar label/button overlap fix ================= */
-/* Put the three decorative window icons on the title-bar background itself. */
-.category-card::before,
-.info-card::before,
-.status-panel::before{
-  background-color:var(--header-fill)!important;
-  background-image:
-    url('../images/window-close.png'),
-    url('../images/window-maximise.png'),
-    url('../images/window-minimise.png')!important;
-  background-repeat:no-repeat!important;
-  background-size:14px 14px,14px 14px,14px 14px!important;
-  background-position:
-    calc(100% - 12px) center,
-    calc(100% - 34px) center,
-    calc(100% - 56px) center!important;
-}
+/* ================= V11.2: authoritative mobile nav toggle ================= */
+@media (max-width:900px){
+  .site-header{
+    position:relative!important;
+  }
 
-/* The text label is text only—clear the old pseudo-element dot styling completely. */
-.category-card::after,
-.info-card::after,
-.status-panel::after{
-  right:auto!important;
-  left:16px!important;
-  top:9px!important;
-  bottom:auto!important;
-  width:auto!important;
-  height:auto!important;
-  max-width:calc(100% - 92px)!important;
-  background:none!important;
-  box-shadow:none!important;
-  border:0!important;
-  white-space:nowrap!important;
-  overflow:hidden!important;
-  text-overflow:ellipsis!important;
+  .menu-toggle{
+    display:grid!important;
+    place-items:center!important;
+    position:relative!important;
+    z-index:2002!important;
+  }
+
+  /* CLOSED BY DEFAULT */
+  .site-header .main-nav{
+    display:none!important;
+    position:absolute!important;
+    left:10px!important;
+    right:10px!important;
+    top:calc(100% + 8px)!important;
+    z-index:2000!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+  }
+
+  /* ONLY OPEN WHEN JS ADDS .open */
+  .site-header .main-nav.open{
+    display:flex!important;
+  }
+
+  .site-header .main-nav > a,
+  .site-header .nav-item{
+    width:100%!important;
+  }
+
+  .site-header .nav-item > .nav-parent{
+    width:100%!important;
+  }
+
+  body:not(.mobile-menu-open) .site-header .main-nav{
+    display:none!important;
+  }
+
+  body.mobile-menu-open .site-header .main-nav.open{
+    display:flex!important;
+  }
 }
