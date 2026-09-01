@@ -448,3 +448,89 @@ footer::before,.site-footer::before{
     overflow:hidden;
   }
 }
+
+
+/* ================= V11: mobile nav, window labels, hero float, frame helper ================= */
+
+/* GALLERY.EXE etc. must occupy only the left side of the title bar.
+   Explicitly clear the old right positioning so it cannot collide with window controls. */
+.category-card::after,
+.info-card::after,
+.status-panel::after{
+  right:auto!important;
+  left:16px!important;
+  width:auto!important;
+  max-width:calc(100% - 96px)!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+
+/* More obvious but still gentle hero bob. */
+.hero-decor-image{
+  animation:heroFloatCute 3.8s ease-in-out infinite!important;
+  transform-origin:center center;
+}
+@keyframes heroFloatCute{
+  0%,100%{transform:translateY(4px) rotate(-.35deg)}
+  50%{transform:translateY(-18px) rotate(.35deg)}
+}
+
+/* Frame helper gets the same top-nav treatment as the other root links. */
+.main-nav > a[href="frame-helper.html"]{
+  display:flex!important;
+  align-items:center;
+  justify-content:center;
+}
+
+/* Mobile menu: hidden unless explicitly opened, toggle always above it. */
+@media(max-width:900px){
+  .site-header{
+    position:relative!important;
+  }
+  .menu-toggle{
+    display:grid!important;
+    place-items:center!important;
+    position:relative!important;
+    z-index:1002!important;
+    width:46px!important;
+    height:42px!important;
+    padding:0!important;
+    font-family:'Press Start 2P',monospace!important;
+    font-size:14px!important;
+    line-height:1!important;
+  }
+  .menu-toggle::before,
+  .menu-toggle::after{
+    content:none!important;
+    display:none!important;
+  }
+  .main-nav{
+    display:none!important;
+    position:absolute!important;
+    left:10px!important;
+    right:10px!important;
+    top:calc(100% + 8px)!important;
+    z-index:1000!important;
+    max-height:calc(100vh - 110px)!important;
+    overflow:auto!important;
+  }
+  .main-nav.open{
+    display:flex!important;
+  }
+  .main-nav > a,
+  .nav-item > .nav-parent{
+    min-height:48px!important;
+  }
+  body.mobile-menu-open{
+    overflow:hidden!important;
+  }
+}
+
+/* Information rows stay clean when collapsed. */
+.collapsible-info > summary{
+  cursor:pointer;
+}
+.collapsible-info:not([open]) .info-body{
+  display:none;
+}

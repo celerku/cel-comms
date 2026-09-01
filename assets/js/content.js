@@ -56,7 +56,9 @@ window.SITE_CONTENT = {
     faq8Question: "FAQ question 8",
     faq8Answer: "Add your answer here.",
     faq9Question: "FAQ question 9",
-    faq9Answer: "Add your answer here."
+    faq9Answer: "Add your answer here.",
+    faq10Question: "FAQ question 10",
+    faq10Answer: "Add your answer here."
   },
   other: {
     eyebrow: "ARCHIVE / OTHER",

@@ -136,3 +136,12 @@ The site background now uses sparse pixel stars and occasional shooting stars in
 ## V10.1 mobile menu
 
 The mobile menu button now toggles closed correctly. It also closes after selecting a page, tapping outside the menu, pressing Escape, or resizing back to desktop.
+
+
+## V11 additions
+
+- `frame-helper.html` is the Frame Helper page and is linked in the top navigation.
+- Information order is now: **1. Prices, 2. Terms & Conditions, 3. FAQ**.
+- All three Information sections are collapsible.
+- FAQ contains 10 editable question/answer pairs.
+- The mobile menu button toggles between `☰` and `×` and can be closed by tapping it again, choosing a link, tapping outside, or pressing Escape.

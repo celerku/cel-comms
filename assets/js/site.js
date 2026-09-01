@@ -10,47 +10,51 @@ const toggle=document.querySelector('.menu-toggle'),nav=document.querySelector('
 
 function setMobileMenu(open){
   if(!nav || !toggle) return;
-  nav.classList.toggle('open',open);
-  toggle.classList.toggle('open',open);
-  toggle.setAttribute('aria-expanded',open?'true':'false');
-  document.body.classList.toggle('mobile-menu-open',open);
+  const isMobile=window.innerWidth<=900;
+  const next=!!open && isMobile;
+  nav.classList.toggle('open',next);
+  toggle.classList.toggle('open',next);
+  toggle.setAttribute('aria-expanded',next?'true':'false');
+  toggle.setAttribute('aria-label',next?'Close navigation':'Open navigation');
+  toggle.textContent=next?'×':'☰';
+  document.body.classList.toggle('mobile-menu-open',next);
 }
 
-toggle?.setAttribute('aria-expanded','false');
-toggle?.addEventListener('click',e=>{
-  e.preventDefault();
-  e.stopPropagation();
-  setMobileMenu(!nav?.classList.contains('open'));
-});
+if(toggle){
+  toggle.setAttribute('aria-expanded','false');
+  toggle.textContent='☰';
+  toggle.addEventListener('click',function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    setMobileMenu(!nav.classList.contains('open'));
+  },true);
+}
 
-// Close the mobile menu after choosing a normal page link.
 nav?.querySelectorAll('a').forEach(link=>{
-  link.addEventListener('click',()=>{
-    if(window.innerWidth<=900) setMobileMenu(false);
-  });
+  link.addEventListener('click',()=>{ if(window.innerWidth<=900) setMobileMenu(false); });
 });
 
-// Close if the user taps outside the open menu.
-document.addEventListener('click',e=>{
+document.addEventListener('pointerdown',e=>{
   if(window.innerWidth>900 || !nav?.classList.contains('open')) return;
   if(nav.contains(e.target) || toggle?.contains(e.target)) return;
   setMobileMenu(false);
-});
+},true);
 
-// Escape also closes the mobile navigation.
 document.addEventListener('keydown',e=>{
-  if(e.key==='Escape' && nav?.classList.contains('open')) setMobileMenu(false);
+  if(e.key==='Escape') setMobileMenu(false);
 });
 
-// Reset state when returning to desktop.
 window.addEventListener('resize',()=>{
   if(window.innerWidth>900) setMobileMenu(false);
 });
 
-// Mobile only: tapping the empty part of a nav item can reveal its submenu; the name itself remains a normal link.
-document.querySelectorAll('.nav-item').forEach(item=>item.addEventListener('click',e=>{
-  if(window.innerWidth<=900&&e.target===item){item.classList.toggle('open')}
-}));
+// On mobile, tapping the blank part of a grouped nav row toggles its submenu.
+document.querySelectorAll('.nav-item').forEach(item=>{
+  item.addEventListener('click',e=>{
+    if(window.innerWidth<=900 && e.target===item) item.classList.toggle('open');
+  });
+});
+
 // Sparse pixel starfield + occasional shooting stars across every page.
 (function makeStarfield(){
   const layer=document.createElement('div');
