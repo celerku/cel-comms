@@ -534,3 +534,61 @@ footer::before,.site-footer::before{
 .collapsible-info:not([open]) .info-body{
   display:none;
 }
+
+
+/* ================= V11.2: authoritative mobile nav toggle ================= */
+@media (max-width:900px){
+  .site-header{
+    position:relative!important;
+  }
+
+  .menu-toggle{
+    display:grid!important;
+    place-items:center!important;
+    position:relative!important;
+    z-index:2002!important;
+  }
+
+  /* CLOSED BY DEFAULT */
+  .site-header .main-nav{
+    display:none!important;
+    position:absolute!important;
+    left:10px!important;
+    right:10px!important;
+    top:calc(100% + 8px)!important;
+    z-index:2000!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+  }
+
+  /* ONLY OPEN WHEN JS ADDS .open */
+  .site-header .main-nav.open{
+    display:flex!important;
+  }
+
+  .site-header .main-nav > a,
+  .site-header .nav-item{
+    width:100%!important;
+  }
+
+  .site-header .nav-item > .nav-parent{
+    width:100%!important;
+  }
+
+  body:not(.mobile-menu-open) .site-header .main-nav{
+    display:none!important;
+  }
+
+  body.mobile-menu-open .site-header .main-nav.open{
+    display:flex!important;
+  }
+}
+
+
+/* ================= V11.3: remove decorative title-bar text labels ================= */
+.category-card::after,
+.info-card::after,
+.status-panel::after{
+  content:none!important;
+  display:none!important;
+}
