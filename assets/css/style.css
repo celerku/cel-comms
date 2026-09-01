@@ -414,3 +414,37 @@ footer::before,.site-footer::before{
   .shooting-star{display:none!important}
   .ambient-star{opacity:.18!important}
 }
+
+
+/* ================= V10.1: mobile navigation close fix ================= */
+@media(max-width:900px){
+  .menu-toggle{
+    position:relative;
+    z-index:120;
+  }
+  .main-nav{
+    z-index:110;
+  }
+  .main-nav.open{
+    display:flex!important;
+  }
+
+  /* Make the same menu button visually become a close button. */
+  .menu-toggle.open{
+    background:rgba(140,152,189,.22)!important;
+    border-color:rgba(220,227,250,.66)!important;
+  }
+  .menu-toggle.open::before{
+    content:"×";
+    font-family:'Press Start 2P',monospace;
+    font-size:14px;
+    line-height:1;
+  }
+  .menu-toggle.open > *{
+    visibility:hidden!important;
+  }
+
+  body.mobile-menu-open{
+    overflow:hidden;
+  }
+}

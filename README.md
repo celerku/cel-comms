@@ -131,3 +131,8 @@ Cards and sections fade in when they enter the viewport and fade out after they 
 ## V10 visual notes
 
 The site background now uses sparse pixel stars and occasional shooting stars instead of rain. No image asset is required for this effect. Window cards use hard pixel shadows, small retro title labels, an active navigation state, and a more deliberate footer/status area.
+
+
+## V10.1 mobile menu
+
+The mobile menu button now toggles closed correctly. It also closes after selecting a page, tapping outside the menu, pressing Escape, or resizing back to desktop.

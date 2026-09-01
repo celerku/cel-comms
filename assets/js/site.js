@@ -7,9 +7,50 @@ function applyContent(){
 }
 applyContent();
 const toggle=document.querySelector('.menu-toggle'),nav=document.querySelector('.main-nav');
-toggle?.addEventListener('click',()=>nav?.classList.toggle('open'));
+
+function setMobileMenu(open){
+  if(!nav || !toggle) return;
+  nav.classList.toggle('open',open);
+  toggle.classList.toggle('open',open);
+  toggle.setAttribute('aria-expanded',open?'true':'false');
+  document.body.classList.toggle('mobile-menu-open',open);
+}
+
+toggle?.setAttribute('aria-expanded','false');
+toggle?.addEventListener('click',e=>{
+  e.preventDefault();
+  e.stopPropagation();
+  setMobileMenu(!nav?.classList.contains('open'));
+});
+
+// Close the mobile menu after choosing a normal page link.
+nav?.querySelectorAll('a').forEach(link=>{
+  link.addEventListener('click',()=>{
+    if(window.innerWidth<=900) setMobileMenu(false);
+  });
+});
+
+// Close if the user taps outside the open menu.
+document.addEventListener('click',e=>{
+  if(window.innerWidth>900 || !nav?.classList.contains('open')) return;
+  if(nav.contains(e.target) || toggle?.contains(e.target)) return;
+  setMobileMenu(false);
+});
+
+// Escape also closes the mobile navigation.
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape' && nav?.classList.contains('open')) setMobileMenu(false);
+});
+
+// Reset state when returning to desktop.
+window.addEventListener('resize',()=>{
+  if(window.innerWidth>900) setMobileMenu(false);
+});
+
 // Mobile only: tapping the empty part of a nav item can reveal its submenu; the name itself remains a normal link.
-document.querySelectorAll('.nav-item').forEach(item=>item.addEventListener('click',e=>{if(window.innerWidth<=900&&e.target===item){item.classList.toggle('open')}}));
+document.querySelectorAll('.nav-item').forEach(item=>item.addEventListener('click',e=>{
+  if(window.innerWidth<=900&&e.target===item){item.classList.toggle('open')}
+}));
 // Sparse pixel starfield + occasional shooting stars across every page.
 (function makeStarfield(){
   const layer=document.createElement('div');
