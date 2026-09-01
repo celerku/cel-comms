@@ -10,8 +10,41 @@ const toggle=document.querySelector('.menu-toggle'),nav=document.querySelector('
 toggle?.addEventListener('click',()=>nav?.classList.toggle('open'));
 // Mobile only: tapping the empty part of a nav item can reveal its submenu; the name itself remains a normal link.
 document.querySelectorAll('.nav-item').forEach(item=>item.addEventListener('click',e=>{if(window.innerWidth<=900&&e.target===item){item.classList.toggle('open')}}));
-// Sparse, chunky rain across every page.
-(function makeRain(){const layer=document.createElement('div');layer.className='global-rain';layer.setAttribute('aria-hidden','true');const count=window.innerWidth<650?12:22;for(let i=0;i<count;i++){const d=document.createElement('i');d.style.left=(Math.random()*100)+'vw';d.style.height=(24+Math.random()*58)+'px';d.style.width=(2.8+Math.random()*3.4)+'px';d.style.animationDuration=(2.4+Math.random()*4.2)+'s';d.style.animationDelay=(-Math.random()*8)+'s';d.style.opacity=(.10+Math.random()*.20).toFixed(2);d.style.transform=`translateY(-110px) rotate(${7+Math.random()*9}deg)`;layer.appendChild(d)}document.body.prepend(layer)})();
+// Sparse pixel starfield + occasional shooting stars across every page.
+(function makeStarfield(){
+  const layer=document.createElement('div');
+  layer.className='global-stars';
+  layer.setAttribute('aria-hidden','true');
+
+  const ambientCount=window.innerWidth<650?28:58;
+  for(let i=0;i<ambientCount;i++){
+    const star=document.createElement('i');
+    star.className='ambient-star';
+    star.style.left=(Math.random()*100)+'vw';
+    star.style.top=(Math.random()*100)+'vh';
+    const size=Math.random()<.78?2:(Math.random()<.85?3:4);
+    star.style.width=size+'px';
+    star.style.height=size+'px';
+    star.style.opacity=(.08+Math.random()*.28).toFixed(2);
+    star.style.animationDuration=(3.5+Math.random()*7)+'s';
+    star.style.animationDelay=(-Math.random()*9)+'s';
+    layer.appendChild(star);
+  }
+
+  const shooterCount=window.innerWidth<650?3:5;
+  for(let i=0;i<shooterCount;i++){
+    const star=document.createElement('i');
+    star.className='shooting-star';
+    star.style.left=(8+Math.random()*72)+'vw';
+    star.style.top=(4+Math.random()*55)+'vh';
+    star.style.setProperty('--travel',(120+Math.random()*180)+'px');
+    star.style.setProperty('--trail',(45+Math.random()*70)+'px');
+    star.style.animationDuration=(5.8+Math.random()*6.5)+'s';
+    star.style.animationDelay=(-Math.random()*14)+'s';
+    layer.appendChild(star);
+  }
+  document.body.prepend(layer);
+})();
 // Fade elements in whenever they enter the viewport and back out when they leave, in either scroll direction.
 const revealTargets=document.querySelectorAll('.category-card,.info-card,.status-panel,.art-card,.loose-piece,.section-heading,.page-intro,.subpage-links,.single-category-gallery,.pixel-category-directory');
 revealTargets.forEach(x=>x.classList.add('reveal','fade-below'));

@@ -44,7 +44,19 @@ window.SITE_CONTENT = {
     faq2Question: "Can you animate a premade?",
     faq2Answer: "Sometimes, depending on the piece.",
     faq3Question: "Can I use artwork from your gallery?",
-    faq3Answer: "No. Gallery artwork is display-only unless I directly give permission."
+    faq3Answer: "No. Gallery artwork is display-only unless I directly give permission.",
+    faq4Question: "FAQ question 4",
+    faq4Answer: "Add your answer here.",
+    faq5Question: "FAQ question 5",
+    faq5Answer: "Add your answer here.",
+    faq6Question: "FAQ question 6",
+    faq6Answer: "Add your answer here.",
+    faq7Question: "FAQ question 7",
+    faq7Answer: "Add your answer here.",
+    faq8Question: "FAQ question 8",
+    faq8Answer: "Add your answer here.",
+    faq9Question: "FAQ question 9",
+    faq9Answer: "Add your answer here."
   },
   other: {
     eyebrow: "ARCHIVE / OTHER",

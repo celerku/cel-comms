@@ -126,3 +126,8 @@ The site intercepts right-clicks and image dragging on gallery art, enlarged vie
 
 ## V8 scroll animation
 Cards and sections fade in when they enter the viewport and fade out after they leave, so the effect works when scrolling both down and back up.
+
+
+## V10 visual notes
+
+The site background now uses sparse pixel stars and occasional shooting stars instead of rain. No image asset is required for this effect. Window cards use hard pixel shadows, small retro title labels, an active navigation state, and a more deliberate footer/status area.

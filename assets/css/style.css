@@ -266,3 +266,151 @@ h1,h2,h3,h4,.brand,.button,.eyebrow,.window-label,.card-number,.viewer-label,
   .site-header{border-width:3px !important}
   .status-panel{padding-top:55px !important}
 }
+
+
+/* ================= V9: stable hover menus + Other directory cleanup ================= */
+@media (min-width:901px){
+  .nav-item{position:relative}
+  .nav-item > .dropdown{
+    display:grid !important;
+    top:calc(100% - 2px) !important;
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+    transform:translateY(6px) !important;
+    transition:opacity .13s ease, transform .13s ease, visibility .13s ease !important;
+  }
+  /* invisible bridge makes the trip from the top button into the menu forgiving */
+  .nav-item::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    top:100%;
+    height:12px;
+    z-index:79;
+  }
+  .nav-item:hover > .dropdown,
+  .nav-item:focus-within > .dropdown,
+  .nav-item > .dropdown:hover{
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:auto !important;
+    transform:translateY(0) !important;
+  }
+}
+.other-back-link{margin-bottom:22px}
+.other-back-link a{display:inline-flex;align-items:center;min-height:38px;padding:8px 12px;border:3px solid var(--outline-bright);background:rgba(255,255,255,.055);box-shadow:4px 4px 0 rgba(3,7,12,.5);text-decoration:none;color:#fff}
+.other-back-link a:hover{background:rgba(140,152,189,.18);transform:translate(-1px,-1px)}
+
+
+/* ================= V10: Cel's little star-window world ================= */
+.global-rain{display:none!important}
+.global-stars{
+  position:fixed; inset:0; overflow:hidden; pointer-events:none; z-index:-2;
+  background:
+    radial-gradient(circle at 20% 30%,rgba(140,152,189,.035) 0 1px,transparent 1px),
+    radial-gradient(circle at 75% 70%,rgba(255,255,255,.025) 0 1px,transparent 1px);
+  background-size:37px 37px,53px 53px;
+}
+.ambient-star{
+  position:absolute; display:block; background:rgba(235,240,255,.9);
+  image-rendering:pixelated; box-shadow:0 0 8px rgba(140,152,189,.28);
+  animation:pixelTwinkle 5s steps(4,end) infinite;
+}
+.ambient-star:nth-child(5n){transform:rotate(45deg)}
+.shooting-star{
+  position:absolute; display:block; width:5px; height:5px;
+  background:#f5f7ff; opacity:0;
+  box-shadow:0 0 9px rgba(220,227,255,.55);
+  animation:shootPixelStar 9s linear infinite;
+}
+.shooting-star::before{
+  content:""; position:absolute; right:3px; top:1px;
+  width:var(--trail,60px); height:3px;
+  background:linear-gradient(90deg,transparent,rgba(140,152,189,.18),rgba(225,231,249,.72));
+  transform-origin:right center;
+}
+@keyframes pixelTwinkle{
+  0%,100%{opacity:.08;transform:scale(.8)}
+  42%{opacity:.55;transform:scale(1)}
+  56%{opacity:.22;transform:scale(.8)}
+}
+@keyframes shootPixelStar{
+  0%,68%{opacity:0;transform:translate(0,0) rotate(-34deg)}
+  71%{opacity:.9}
+  82%{opacity:.75}
+  91%,100%{opacity:0;transform:translate(var(--travel,180px),calc(var(--travel,180px) * .67)) rotate(-34deg)}
+}
+
+/* Harder, friendlier pixel depth instead of flat minimalist cards. */
+.category-card,.info-card,.status-panel,.pixel-window,.art-card,.loose-piece,
+.pixel-category-directory .category-card,.viewer-panel,.empty-state{
+  box-shadow:6px 6px 0 rgba(3,7,13,.62),9px 9px 0 rgba(140,152,189,.07)!important;
+}
+.category-card:hover,.art-card:hover,.loose-piece:hover,.pixel-category-directory .category-card:hover{
+  transform:translate(-2px,-2px);
+  box-shadow:8px 8px 0 rgba(3,7,13,.68),11px 11px 0 rgba(140,152,189,.10)!important;
+}
+
+/* Small retro title-bar labels/details. */
+.category-card::after,.info-card::after,.status-panel::after{
+  position:absolute; top:13px; left:16px; z-index:3;
+  font-family:'DotGothic16',monospace!important;
+  font-size:10px; letter-spacing:.12em; color:rgba(238,242,255,.62);
+  text-transform:uppercase; pointer-events:none;
+}
+.category-card::after{content:"GALLERY.WIN"}
+.info-card::after{content:"INFO.TXT"}
+.status-panel::after{content:"STATUS.EXE"}
+
+/* Friendly dividers and little UI crumbs. */
+.pixel-divider{
+  width:min(1180px,calc(100% - 36px)); margin:18px auto 30px;
+  display:flex; align-items:center; gap:14px; color:rgba(190,202,235,.52);
+  font-family:'DotGothic16',monospace; font-size:14px; pointer-events:none;
+}
+.pixel-divider::before,.pixel-divider::after{
+  content:""; height:3px; flex:1;
+  background:repeating-linear-gradient(90deg,rgba(140,152,189,.26) 0 8px,transparent 8px 14px);
+}
+
+/* Current page remains visibly selected in the top navigation. */
+body[data-page="home"] .main-nav>a[href="index.html"],
+body[data-page="pixel"] .nav-parent[href="pixel-art.html"],
+body[data-page="premades"] .main-nav>a[href="premades.html"],
+body[data-page="information"] .nav-parent[href="information.html"],
+body[data-page="other"] .nav-parent[href="other.html"]{
+  color:#fff!important; border-color:rgba(210,220,248,.68)!important;
+  background:rgba(140,152,189,.22)!important;
+  box-shadow:3px 3px 0 rgba(3,7,12,.55)!important;
+}
+
+/* Give the footer a deliberate little desktop/status-bar ending. */
+footer,.site-footer{
+  width:min(1180px,calc(100% - 36px)); margin:44px auto 24px!important;
+  padding:15px 18px!important; border:3px solid rgba(190,202,235,.38);
+  background:rgba(255,255,255,.055); box-shadow:5px 5px 0 rgba(3,7,12,.58);
+  text-align:center; position:relative;
+}
+footer::before,.site-footer::before{
+  content:"✦  CEL.LOG  ·  thanks for visiting ♡  ·  ✦";
+  display:block; margin-bottom:7px; color:rgba(190,202,235,.62);
+  font-family:'DotGothic16',monospace; font-size:12px; letter-spacing:.08em;
+}
+
+/* Hero gets a little more presence without boxing the decor image. */
+.hero-copy{position:relative}
+.hero-copy::after{
+  content:"+  ✦  +"; display:block; margin-top:20px;
+  color:rgba(190,202,235,.42); font-family:'DotGothic16',monospace;
+  letter-spacing:.5em; font-size:15px;
+}
+.hero-decor-bare{filter:drop-shadow(8px 9px 0 rgba(3,7,12,.42))}
+
+/* Keep the world calm for visitors who prefer reduced motion. */
+@media(prefers-reduced-motion:reduce){
+  .ambient-star,.shooting-star{animation:none!important}
+  .shooting-star{display:none!important}
+  .ambient-star{opacity:.18!important}
+}
