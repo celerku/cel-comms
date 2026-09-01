@@ -592,3 +592,40 @@ footer::before,.site-footer::before{
   content:none!important;
   display:none!important;
 }
+
+
+/* ================= V11.5: gentle bounce for section decorations ================= */
+.section-decor-image,
+.page-decor-image,
+.status-decor{
+  animation:sectionDecorBounce 4.2s ease-in-out infinite;
+  transform-origin:center center;
+  will-change:transform;
+}
+
+@keyframes sectionDecorBounce{
+  0%,100%{
+    transform:translateY(2px) rotate(-0.2deg);
+  }
+  50%{
+    transform:translateY(-11px) rotate(0.2deg);
+  }
+}
+
+/* Slightly stagger repeated decorations so they don't all move in sync. */
+.section:nth-of-type(even) .section-decor-image{
+  animation-delay:-1.3s;
+}
+.section:nth-of-type(3n) .section-decor-image{
+  animation-delay:-2.1s;
+}
+
+/* Keep motion accessibility-friendly. */
+@media(prefers-reduced-motion:reduce){
+  .section-decor-image,
+  .page-decor-image,
+  .status-decor{
+    animation:none!important;
+    transform:none!important;
+  }
+}
