@@ -131,3 +131,22 @@ document.addEventListener('dragstart',e=>{
 },true);
 // Delegation from document means art inserted later by gallery/lightbox scripts is protected too.
 const current=location.pathname.split('/').pop()||'index.html';document.querySelectorAll('[data-subpage]').forEach(a=>{if(a.dataset.subpage===current)a.classList.add('active')});
+
+
+// V11.4: force-remove decorative pseudo-element window labels at runtime.
+// This intentionally overrides even an older cached stylesheet.
+(function removeLegacyWindowLabels(){
+  const style=document.createElement('style');
+  style.id='remove-legacy-window-labels';
+  style.textContent=`
+    .category-card::after,
+    .info-card::after,
+    .status-panel::after{
+      content:none !important;
+      display:none !important;
+      background:none !important;
+      box-shadow:none !important;
+    }
+  `;
+  document.head.appendChild(style);
+})();
