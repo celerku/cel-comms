@@ -104,7 +104,7 @@ Each Pixel Art category now has its own HTML page:
 The `pixel-art.html` page is only the directory.
 
 
-## V7 — Pixel Art directory
+## V8 — Pixel Art directory
 `pixel-art.html` now works like the `Other` directory: it shows simple category windows. Clicking a category opens its dedicated page.
 
 Dedicated Pixel Art pages remain:
@@ -117,12 +117,12 @@ Dedicated Pixel Art pages remain:
 - `sprites.html`
 - `pixel-headshots.html`
 
-## V7 typography
+## V8 typography
 - Headings, navigation and UI labels: **Press Start 2P**
 - Paragraph/body text: **DotGothic16**
 
-## V7 art protection
+## V8 art protection
 The site intercepts right-clicks and image dragging on gallery art, enlarged viewers and displayed image assets. This is a deterrent only; anything shown in a browser can still be screenshotted or retrieved by a determined visitor.
 
-## V7 scroll animation
+## V8 scroll animation
 Cards and sections fade in when they enter the viewport and fade out after they leave, so the effect works when scrolling both down and back up.

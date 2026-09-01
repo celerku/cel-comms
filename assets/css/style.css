@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap');
 :root{--blue:#8C98BD;--blue2:#aeb8d2;--ink:#f3f5fb;--muted:#aeb5c7;--bg:#0d1118;--bg2:#121823;--panel:#151c28;--panel2:#1a2230;--line:#2b3548;--softline:#222c3d;--shadow:0 24px 70px rgba(0,0,0,.34);--radius:4px}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:radial-gradient(circle at 20% -10%,rgba(140,152,189,.13),transparent 34%),var(--bg);color:var(--ink);font-family:Manrope,system-ui,sans-serif}a{color:inherit}.wrap{width:min(1160px,calc(100% - 36px));margin:auto}button{font:inherit}
 body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background-image:linear-gradient(rgba(140,152,189,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(140,152,189,.035) 1px,transparent 1px);background-size:24px 24px;mask-image:linear-gradient(to bottom,#000,transparent 82%)}
@@ -15,7 +15,6 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;bac
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rain,.rain:before,.rain:after{animation:none;opacity:.07}*{transition:none!important}}
 
 /* v4 — minimalist indie pixel-window theme */
-@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap');
 :root{--glass:rgba(255,255,255,.065);--glass2:rgba(255,255,255,.095);--glassline:rgba(255,255,255,.15)}
 body,button,input,textarea,select{font-family:'Pixelify Sans',system-ui,sans-serif!important;letter-spacing:.015em}
 .eyebrow,.brand,.nav-link,.main-nav>a,.button,.filter-btn,.price-table th,.price-table td,.window-bar,.copy-hint,.viewer-label,.art-info p,.loose-piece figcaption span,.loose-piece figcaption small,footer,code{font-family:'Pixelify Sans',system-ui,sans-serif!important}
@@ -56,7 +55,6 @@ body{font-family:'Pixelify Sans',system-ui,sans-serif!important;font-size:16px}.
 @media(prefers-reduced-motion:reduce){.hero-decor-image{animation:none}}
 
 /* ================= V6: directory pages + friendlier heavy retro shell ================= */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Silkscreen:wght@400;700&display=swap');
 :root{--outline-heavy:3px;--outline-soft:rgba(204,214,240,.42);--outline-bright:rgba(222,229,248,.72)}
 body{font-family:'IBM Plex Mono',monospace}
 h1,h2,h3,.brand,.main-nav,.button,.eyebrow,.window-label,.card-number,.viewer-label,.directory-number,.directory-name{font-family:'Silkscreen',monospace;letter-spacing:-.02em}
@@ -80,7 +78,6 @@ h1,h2,h3,.brand,.main-nav,.button,.eyebrow,.window-label,.card-number,.viewer-la
 @media(max-width:650px){.hero-decor-bare{width:min(82vw,330px)}.page-decor-slot{width:min(62vw,220px);place-items:start}.directory-preview{grid-template-columns:1fr}.directory-hint{display:none}.pixel-directory-row>summary{grid-template-columns:42px 1fr}.single-category-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.section-decor-image{max-width:min(42vw,130px)!important}}
 
 /* ================= V6: directory pages + friendlier heavy retro shell ================= */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Silkscreen:wght@400;700&display=swap');
 :root{--outline-heavy:3px;--outline-soft:rgba(204,214,240,.42);--outline-bright:rgba(222,229,248,.72)}
 body{font-family:'IBM Plex Mono',monospace}
 h1,h2,h3,.brand,.main-nav,.button,.eyebrow,.window-label,.card-number,.viewer-label,.directory-number,.directory-name{font-family:'Silkscreen',monospace;letter-spacing:-.02em}
@@ -104,7 +101,6 @@ h1,h2,h3,.brand,.main-nav,.button,.eyebrow,.window-label,.card-number,.viewer-la
 @media(max-width:650px){.hero-decor-bare{width:min(82vw,330px)}.page-decor-slot{width:min(62vw,220px);place-items:start}.directory-preview{grid-template-columns:1fr}.directory-hint{display:none}.pixel-directory-row>summary{grid-template-columns:42px 1fr}.single-category-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.section-decor-image{max-width:min(42vw,130px)!important}}
 
 /* ================= V7: typography + simple pixel directory + bidirectional fades ================= */
-@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap');
 
 body, p, li, td, th, input, textarea, select, figcaption, .page-intro, .home-lede, .dropdown a, .commissioner, .copy-hint, .viewer-meta, .other-description, .art-protection-notice small {
   font-family:'DotGothic16',system-ui,sans-serif !important;
@@ -136,3 +132,137 @@ img,.art-thumb,.loose-image,.large-other-stage,.upscaled-stage,.actual-stage,.vi
 
 @media(max-width:700px){.pixel-category-directory{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.reveal,.reveal.fade-above,.reveal.fade-below,.reveal.shown{opacity:1!important;transform:none!important;transition:none!important}}
+
+/* ================= V8: navigation consistency + font repair + window polish ================= */
+/* Font imports must live at the start of the stylesheet; the V8 build moves them there. */
+:root{
+  --header-line: rgba(190,202,235,.56);
+  --header-fill: rgba(255,255,255,.145);
+  --header-fill-hover: rgba(255,255,255,.205);
+}
+body, p, li, td, th, input, textarea, select, figcaption, .page-intro, .home-lede,
+.dropdown a, .commissioner, .copy-hint, .viewer-meta, .other-description,
+.art-protection-notice small, footer, code {
+  font-family:'DotGothic16', monospace, sans-serif !important;
+  font-weight:400 !important;
+}
+h1,h2,h3,h4,.brand,.button,.eyebrow,.window-label,.card-number,.viewer-label,
+.filter-btn,.lightbox-close,.menu-toggle,.main-nav > a,.nav-item > .nav-parent {
+  font-family:'Press Start 2P', monospace !important;
+  font-weight:400 !important;
+}
+
+/* Every top navigation section gets the exact same box treatment. */
+.site-header{
+  border:3px solid var(--header-line) !important;
+  min-height:68px;
+  height:auto;
+}
+.main-nav{
+  display:flex;
+  align-items:center;
+  gap:7px !important;
+}
+.main-nav > a,
+.nav-item > .nav-parent{
+  display:flex !important;
+  align-items:center;
+  justify-content:center;
+  min-height:38px;
+  padding:9px 11px !important;
+  margin:0 !important;
+  color:var(--muted) !important;
+  text-decoration:none !important;
+  border:2px solid rgba(190,202,235,.28) !important;
+  background:rgba(255,255,255,.035) !important;
+  font-size:8px !important;
+  line-height:1.45 !important;
+  white-space:nowrap;
+  box-shadow:none !important;
+  transform:none !important;
+}
+.main-nav > a:hover,
+.nav-item > .nav-parent:hover,
+.main-nav > a.active,
+.nav-item > .nav-parent.active{
+  color:#fff !important;
+  border-color:var(--header-line) !important;
+  background:rgba(140,152,189,.17) !important;
+  text-decoration:none !important;
+}
+.nav-item{display:flex;align-items:center;position:relative}
+.dropdown{
+  top:calc(100% + 9px) !important;
+  border:3px solid var(--header-line) !important;
+}
+.dropdown a{
+  font-size:14px !important;
+  line-height:1.35 !important;
+  text-decoration:none !important;
+}
+
+/* Brighter title bars on all fake windows. */
+.category-card:before,.info-card:before,.status-panel:before{
+  background:var(--header-fill) !important;
+  border-bottom:3px solid var(--header-line) !important;
+}
+.category-card:hover:before,.info-card:hover:before,.status-panel:hover:before{
+  background:var(--header-fill-hover) !important;
+}
+.pixel-window .window-bar,.window-bar{
+  background:var(--header-fill) !important;
+  border-bottom:3px solid var(--header-line) !important;
+  color:#e5e9f5 !important;
+}
+
+/* Commission status: keep all three pieces in predictable columns and prevent smashed text. */
+.status-panel{
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) minmax(180px,auto) minmax(0,180px);
+  align-items:center !important;
+  gap:22px !important;
+  padding:56px 24px 24px !important;
+}
+.status-panel > div{min-width:0}
+.status-panel h2{
+  margin:4px 0 0 !important;
+  font-size:clamp(13px,2vw,20px) !important;
+  line-height:1.65 !important;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+.status-panel > p{
+  margin:0 !important;
+  font-size:16px !important;
+  line-height:1.5 !important;
+  text-align:right;
+  white-space:normal;
+}
+.status-panel .status-decor{
+  position:static !important;
+  justify-self:end;
+  max-width:160px !important;
+  max-height:100px !important;
+  width:auto !important;
+  height:auto !important;
+  object-fit:contain !important;
+}
+
+/* A little extra thickness/clarity for outlined controls. */
+.category-card,.info-card,.status-panel,.art-card,.loose-piece,.art-viewer,.viewer-panel,.empty-state,
+.button,.filter-btn,.subpage-links a,.pixel-category-directory .category-card{
+  border-color:rgba(190,202,235,.46) !important;
+}
+
+@media(max-width:900px){
+  .main-nav{gap:5px !important}
+  .main-nav > a,.nav-item > .nav-parent{width:100%;justify-content:flex-start;font-size:8px !important}
+  .nav-item{display:block;width:100%}
+  .status-panel{grid-template-columns:1fr !important;text-align:left}
+  .status-panel > p{text-align:left !important}
+  .status-panel .status-decor{justify-self:start}
+}
+@media(max-width:600px){
+  .site-header{border-width:3px !important}
+  .status-panel{padding-top:55px !important}
+}
