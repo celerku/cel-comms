@@ -583,3 +583,12 @@ footer::before,.site-footer::before{
     display:flex!important;
   }
 }
+
+
+/* ================= V11.3: remove decorative title-bar text labels ================= */
+.category-card::after,
+.info-card::after,
+.status-panel::after{
+  content:none!important;
+  display:none!important;
+}
