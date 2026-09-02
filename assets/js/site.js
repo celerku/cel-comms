@@ -3,6 +3,14 @@ function getPath(obj,path){return path.split('.').reduce((o,k)=>o?.[k],obj)}
 function applyContent(){
   document.querySelectorAll('[data-content]').forEach(el=>{const v=getPath(C,el.dataset.content);if(v!==undefined&&v!==null)el.textContent=v});
   document.querySelectorAll('[data-content-list]').forEach(el=>{const v=getPath(C,el.dataset.contentList);if(Array.isArray(v))el.innerHTML=v.map(x=>`<li>${String(x).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}</li>`).join('')});
+
+  document.querySelectorAll('[data-pricing-rows]').forEach(tbody=>{
+    const rows=C?.information?.pricingRows;
+    if(!Array.isArray(rows)) return;
+    const escCell=v=>String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+    tbody.innerHTML=rows.map(row=>`<tr><td>${escCell(row[0])}</td><td>${escCell(row[1])}</td><td>${escCell(row[2])}</td></tr>`).join('');
+  });
+
   const y=new Date().getFullYear();document.querySelectorAll('[data-footer]').forEach(el=>el.textContent=(C.footer||'© {year} @celerku').replace('{year}',y));
 }
 applyContent();

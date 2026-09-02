@@ -48,7 +48,49 @@ window.SITE_CONTENT = {
       "I'm not at the skill level of super fluid animations and effects yet, so please keep that in mind."
     ],
     "pricingTitle": "Commission Prices",
-    "pricingNote": "Prices may vary with complexity, animation, extras, rush work or commercial use.",
+    "pricingNote": "Prices may vary with complexity, animation, extras, rush work or commercial use. Please contact me if you would like to discuss paying with Gift Cards, Nitro, etc. Tips appreciated! PayPal: @celcomms",
+    "pricingRows": [
+    [
+        "Food Series Avatar",
+        "Static · Food-themed pixel piece",
+        "15 USD"
+    ],
+    [
+        "Jelly / Wiggly Avatars",
+        "Animated avatar",
+        "20 USD*"
+    ],
+    [
+        "Spinning Avatar",
+        "Animated avatar",
+        "35 USD"
+    ],
+    [
+        "Custom Avatar",
+        "Static · Custom pixel avatar",
+        "25 USD*"
+    ],
+    [
+        "Simple Custom Avatar",
+        "Simple custom animation",
+        "40 USD (availability depends on design)"
+    ],
+    [
+        "Custom Avatar",
+        "More complex animation",
+        "MAY VARY; 50+ USD (currently unavailable)"
+    ],
+    [
+        "Sprite",
+        "Static / Animated · Small-scale sprite work",
+        "10–35 USD (depending on static/animated and complexity)"
+    ],
+    [
+        "Pixel Headshot",
+        "Static / Basic Animation · Pixel headshot",
+        "25–35 USD (depending on complexity)"
+    ]
+],
     "faqTitle": "FAQ",
     "faq1Question": "Where do I contact you?",
     "faq1Answer": "Discord: @in_celerku.",
