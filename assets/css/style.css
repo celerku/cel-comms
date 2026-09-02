@@ -808,3 +808,130 @@ footer::before,.site-footer::before{
 #other-viewer-pixel:not([hidden]){
   display:grid!important;
 }
+
+
+/* ================= V11.13: Other gallery flow + zoom-safe navigation ================= */
+
+/* Normal "Other" galleries should read as a clean responsive grid, not masonry.
+   This prevents items from jumping far down/right when their heights differ. */
+.loose-gallery{
+  columns:auto!important;
+  column-gap:0!important;
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:18px!important;
+  align-items:start!important;
+}
+
+.loose-gallery .loose-piece,
+.loose-gallery .loose-piece:nth-child(3n+2),
+.loose-gallery .loose-piece:nth-child(4n){
+  display:block!important;
+  width:100%!important;
+  margin:0!important;
+  break-inside:auto!important;
+}
+
+.loose-gallery .loose-image{
+  width:100%!important;
+}
+
+.loose-gallery .loose-image img{
+  max-width:100%!important;
+  height:auto!important;
+  object-fit:contain!important;
+}
+
+/* Switch to the already-working hamburger layout sooner.
+   Browser zoom reduces the CSS viewport width, so this avoids the desktop nav
+   overflowing/breaking before the old 900px breakpoint is reached. */
+@media(max-width:1180px){
+  .site-header{
+    min-width:0!important;
+  }
+
+  .brand{
+    flex:0 0 auto!important;
+    min-width:0!important;
+  }
+
+  .menu-toggle{
+    display:block!important;
+    flex:0 0 auto!important;
+  }
+
+  .main-nav{
+    position:absolute!important;
+    left:0!important;
+    right:0!important;
+    top:65px!important;
+    display:none!important;
+    align-items:stretch!important;
+    flex-direction:column!important;
+    background:#101620!important;
+    border:2px solid var(--line)!important;
+    padding:8px!important;
+    max-height:min(72vh,620px)!important;
+    overflow-y:auto!important;
+  }
+
+  .main-nav.open{
+    display:flex!important;
+  }
+
+  .main-nav>.nav-item,
+  .main-nav>a{
+    width:100%!important;
+    flex:0 0 auto!important;
+  }
+
+  .nav-link,
+  .main-nav>a,
+  .nav-parent{
+    width:100%!important;
+    text-align:left!important;
+  }
+
+  .dropdown{
+    position:static!important;
+    display:none!important;
+    opacity:1!important;
+    visibility:visible!important;
+    transform:none!important;
+    box-shadow:none!important;
+    margin:3px 0 6px 12px!important;
+    border-left:2px solid var(--line)!important;
+    border-top:0!important;
+    border-right:0!important;
+    border-bottom:0!important;
+    background:transparent!important;
+  }
+
+  .nav-item.open .dropdown{
+    display:block!important;
+  }
+
+  .nav-item:hover .dropdown:not(.mobile-open){
+    display:none!important;
+  }
+
+  .nav-item.open:hover .dropdown{
+    display:block!important;
+  }
+}
+
+@media(max-width:900px){
+  .loose-gallery{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+}
+
+@media(max-width:600px){
+  .main-nav{
+    top:59px!important;
+  }
+  .loose-gallery{
+    grid-template-columns:1fr!important;
+    gap:12px!important;
+  }
+}
