@@ -40,5 +40,20 @@ const OTHER_ART = [
   { page:"random-art", title:"Sol Favart 2024", file:"other/random-art/13.png", artist:"", dimensions:"1280 × 1282 px", nativeWidth:1280, nativeHeight:1282, copyable:false, description:"" },
   { page:"random-art", title:"Kanni Character Design 2026", file:"other/random-art/14.png", artist:"", dimensions:"1142 × 1500 px", nativeWidth:1142, nativeHeight:1500, copyable:false, description:"" },
   { page:"random-art", title:"Headshot Character", file:"other/random-art/15.jpg", artist:"", dimensions:"1198 × 1198 px", nativeWidth:1198, nativeHeight:1198, copyable:false, description:"2025" },
-  { page:"random-art", title:"Pencil on Paper, 2021", file:"other/random-art/16.png", artist:"", dimensions:"1042 × 1288 px", nativeWidth:1042, nativeHeight:1288, copyable:false, description:"" }
+  { page:"random-art", title:"Pencil on Paper, 2021", file:"other/random-art/16.png", artist:"", dimensions:"1042 × 1288 px", nativeWidth:1042, nativeHeight:1288, copyable:false, description:"" },
+  { page:"oc-fanart", title:"Beryl", file:"other/oc-fanart/1.jpg", artist:"rxKZKNE", dimensions:"1280 × 1323 px", nativeWidth:1280, nativeHeight:1323, copyable:false, description:"" },
+  { page:"oc-fanart", title:"Beryl", file:"other/oc-fanart/2.png", artist:"sushi_kat246", dimensions:"690 × 710 px", nativeWidth:690, nativeHeight:710, copyable:false, description:"" },
+  { page:"oc-fanart", title:"Beryl", file:"other/oc-fanart/3.png", artist:"artekkiesu", dimensions:"702 × 716 px", nativeWidth:702, nativeHeight:716, copyable:false, description:"" },
+  { page:"oc-fanart", title:"Beryl", file:"other/oc-fanart/4.png", artist:"its_bunnychan", dimensions:"712 × 896 px", nativeWidth:712, nativeHeight:896, copyable:false, description:"" },
+  { page:"oc-fanart", title:"Beryl", file:"other/oc-fanart/5.png", artist:"_frenchmango_", dimensions:"702 × 890 px", nativeWidth:702, nativeHeight:890, copyable:false, description:"" },
+  { page:"oc-fanart", title:"Beryl", file:"other/oc-fanart/6.png", artist:"d00mo", dimensions:"697 × 880 px", nativeWidth:697, nativeHeight:880, copyable:false, description:"" },
+  { page:"oc-fanart", title:"", file:"other/oc-fanart/7.png", artist:"random child on roblox", dimensions:"554 × 484 px", nativeWidth:554, nativeHeight:484, copyable:false, description:"" },
+  { page:"oc-fanart", title:"REK", file:"other/oc-fanart/8.png", artist:"pakapakachama", dimensions:"718 × 958 px", nativeWidth:718, nativeHeight:958, copyable:false, description:"" },
+  { page:"oc-fanart", title:"REK (m)", file:"other/oc-fanart/9.png", artist:"", dimensions:"722 × 874 px", nativeWidth:722, nativeHeight:874, copyable:false, description:"" },
+  { page:"oc-fanart", title:"REK", file:"other/oc-fanart/10.png", artist:"teardr0p", dimensions:"1055 × 1304 px", nativeWidth:1055, nativeHeight:1304, copyable:false, description:"" },
+  { page:"oc-fanart", title:"REK", file:"other/oc-fanart/11.png", artist:"kokkoa33", dimensions:"1280 × 1582 px", nativeWidth:1280, nativeHeight:1582, copyable:false, description:"" },
+  { page:"oc-fanart", title:"REK", file:"other/oc-fanart/12.png", artist:"tsubkoyaki", dimensions:"1019 × 1304 px", nativeWidth:1019, nativeHeight:1304, copyable:false, description:"" },
+  { page:"oc-fanart", title:"REK", file:"other/oc-fanart/13.png", artist:"", dimensions:"1172 × 1500 px", nativeWidth:1172, nativeHeight:1500, copyable:false, description:"" },
+  { page:"oc-fanart", title:"REK", file:"other/oc-fanart/14.jpg", artist:"", dimensions:"1280 × 1638 px", nativeWidth:1280, nativeHeight:1638, copyable:false, description:"" },
+  { page:"oc-fanart", title:"Beryl", file:"other/oc-fanart/15.png", artist:"ve111v", dimensions:"881 × 888 px", nativeWidth:881, nativeHeight:888, copyable:false, description:"" }
 ];
