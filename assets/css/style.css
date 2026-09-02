@@ -718,3 +718,53 @@ footer::before,.site-footer::before{
     margin-right:0!important;
   }
 }
+
+
+/* ================= V11.7: Commissioned Avatar Artists = Pixel Art card layout ================= */
+
+/* Use the exact compact grid language of the dedicated Pixel Art galleries. */
+.commissioned-gallery{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:16px!important;
+  columns:auto!important;
+  width:100%!important;
+}
+
+.commissioned-gallery .art-card{
+  width:100%!important;
+  min-width:0!important;
+  margin:0!important;
+  display:block!important;
+}
+
+/* Keep the artwork stage square and compact like the Pixel Art pages. */
+.commissioned-gallery .art-thumb{
+  aspect-ratio:1 / 1!important;
+  min-height:0!important;
+}
+
+.commissioned-gallery .art-thumb img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  image-rendering:pixelated!important;
+}
+
+/* Same responsive column behaviour as the Pixel galleries. */
+@media(max-width:900px){
+  .commissioned-gallery{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  }
+}
+@media(max-width:650px){
+  .commissioned-gallery{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:12px!important;
+  }
+}
+@media(max-width:390px){
+  .commissioned-gallery{
+    grid-template-columns:1fr!important;
+  }
+}
