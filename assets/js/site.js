@@ -102,7 +102,7 @@ window.addEventListener('resize',()=>{
   document.body.prepend(layer);
 })();
 // Fade elements in whenever they enter the viewport and back out when they leave, in either scroll direction.
-const revealTargets=document.querySelectorAll('.category-card,.info-card,.status-panel,.art-card,.loose-piece,.section-heading,.page-intro,.subpage-links,.single-category-gallery,.pixel-category-directory');
+const revealTargets=document.querySelectorAll('.category-card,.info-card,.status-panel,.art-card,.loose-piece,.section-heading,.page-intro,.subpage-links,.pixel-category-directory');
 revealTargets.forEach(x=>x.classList.add('reveal','fade-below'));
 if('IntersectionObserver' in window){
   const io=new IntersectionObserver(entries=>entries.forEach(entry=>{
@@ -158,3 +158,10 @@ const current=location.pathname.split('/').pop()||'index.html';document.querySel
   `;
   document.head.appendChild(style);
 })();
+
+// V11.12: Pixel subpage gallery containers must be visible immediately.
+// Individual .art-card elements still use the normal scroll fade animation.
+document.querySelectorAll('.single-category-gallery').forEach(g=>{
+  g.classList.remove('reveal','fade-below','fade-above');
+  g.classList.add('shown');
+});
