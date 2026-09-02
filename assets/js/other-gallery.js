@@ -27,6 +27,52 @@ if(grid){
     items.forEach((a,index)=>grid.appendChild(mode==='pixel'?commissionedCard(a,index):loosePiece(a,index)));
   }
 }
-function openOther(a,pixel,index){const box=document.querySelector('#other-lightbox');if(!box||!a.file)return;document.querySelector('#other-lightbox-title').textContent=`${a.title} (${Number(index)+1})`;document.querySelector('#other-lightbox-meta').textContent=[a.dimensions,a.artist?`artist · ${a.artist}`:''].filter(Boolean).join(' · ');const pv=document.querySelector('#other-viewer-pixel'),lv=document.querySelector('#other-viewer-loose');pv.hidden=!pixel;lv.hidden=pixel;const src=`assets/art-web/${a.file}`;if(pixel){const main=document.querySelector('#other-lightbox-img'),actual=document.querySelector('#other-actual-img');main.src=src;actual.src=src;if(a.nativeWidth&&a.nativeHeight){actual.style.width=a.nativeWidth+'px';actual.style.height=a.nativeHeight+'px'}else{actual.style.width='auto';actual.style.height='auto'}const pd=document.querySelector('#other-description-pixel');if(pd)pd.textContent=a.description||''}else{document.querySelector('#other-large-img').src=src;document.querySelector('#other-description').textContent=a.description||''}box.classList.add('open');box.setAttribute('aria-hidden','false')}
+function openOther(a,pixel,index){
+  const box=document.querySelector('#other-lightbox');
+  if(!box||!a.file)return;
+
+  document.querySelector('#other-lightbox-title').textContent=`${a.title} (${Number(index)+1})`;
+  document.querySelector('#other-lightbox-meta').textContent=[a.dimensions,a.artist?`artist · ${a.artist}`:''].filter(Boolean).join(' · ');
+
+  const pv=document.querySelector('#other-viewer-pixel');
+  const lv=document.querySelector('#other-viewer-loose');
+  const src=`assets/art-web/${a.file}`;
+
+  // ONLY Commissioned Avatar Artists use the Pixel Art dual-view layout.
+  if(pixel===true){
+    pv.hidden=false;
+    lv.hidden=true;
+
+    const main=document.querySelector('#other-lightbox-img');
+    const actual=document.querySelector('#other-actual-img');
+    main.src=src;
+    actual.src=src;
+
+    if(a.nativeWidth&&a.nativeHeight){
+      actual.style.width=a.nativeWidth+'px';
+      actual.style.height=a.nativeHeight+'px';
+    }else{
+      actual.style.width='auto';
+      actual.style.height='auto';
+    }
+
+    const pd=document.querySelector('#other-description-pixel');
+    if(pd)pd.textContent=a.description||'';
+  }else{
+    // All other "Other" pages use ONE normal large image only.
+    pv.hidden=true;
+    lv.hidden=false;
+
+    const large=document.querySelector('#other-large-img');
+    large.src=src;
+    large.style.width='auto';
+    large.style.height='auto';
+
+    document.querySelector('#other-description').textContent=a.description||'';
+  }
+
+  box.classList.add('open');
+  box.setAttribute('aria-hidden','false');
+}
 function closeOther(){const box=document.querySelector('#other-lightbox');box?.classList.remove('open');box?.setAttribute('aria-hidden','true')}
 document.querySelector('#other-lightbox .lightbox-close')?.addEventListener('click',closeOther);document.querySelector('#other-lightbox')?.addEventListener('click',e=>{if(e.target.id==='other-lightbox')closeOther()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeOther()});
