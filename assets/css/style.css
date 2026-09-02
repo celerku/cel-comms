@@ -789,3 +789,22 @@ footer::before,.site-footer::before{
   background:rgba(140,152,189,.18)!important;
   transform:translate(-1px,-1px)!important;
 }
+
+
+/* ================= V11.11: properly hide inactive Other viewer ================= */
+/* Some viewer layout rules set display:grid/block explicitly, which can override
+   the browser's default [hidden] behaviour. Force the inactive viewer away. */
+#other-viewer-pixel[hidden],
+#other-viewer-loose[hidden]{
+  display:none!important;
+}
+
+/* Normal Other pages: single-image viewer only. */
+#other-viewer-loose:not([hidden]){
+  display:block!important;
+}
+
+/* Commissioned Avatar Artists: Pixel-style dual viewer only. */
+#other-viewer-pixel:not([hidden]){
+  display:grid!important;
+}
