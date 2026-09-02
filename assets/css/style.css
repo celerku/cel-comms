@@ -935,3 +935,47 @@ footer::before,.site-footer::before{
     gap:12px!important;
   }
 }
+
+
+/* ================= V11.14: viewer zoom open / minimise close ================= */
+.lightbox{
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .18s ease;
+}
+.lightbox.open{
+  opacity:1;
+  pointer-events:auto;
+}
+.lightbox .art-viewer,
+#other-lightbox .art-viewer{
+  transform:scale(.88) translateY(14px);
+  opacity:0;
+  transform-origin:50% 55%;
+  transition:
+    transform .22s cubic-bezier(.2,.8,.2,1),
+    opacity .16s ease;
+}
+.lightbox.open .art-viewer,
+#other-lightbox.open .art-viewer{
+  transform:scale(1) translateY(0);
+  opacity:1;
+}
+.lightbox.closing .art-viewer,
+#other-lightbox.closing .art-viewer{
+  transform:scale(.72) translateY(26px);
+  opacity:0;
+}
+.lightbox.closing,
+#other-lightbox.closing{
+  opacity:0;
+}
+
+@media(prefers-reduced-motion:reduce){
+  .lightbox,
+  .lightbox .art-viewer,
+  #other-lightbox .art-viewer{
+    transition:none!important;
+    transform:none!important;
+  }
+}
