@@ -768,3 +768,24 @@ footer::before,.site-footer::before{
     grid-template-columns:1fr!important;
   }
 }
+
+
+/* ================= V11.9: Pixel subpage back-link consistency ================= */
+.subpage-toolbar{
+  margin-bottom:22px;
+}
+.subpage-toolbar a{
+  display:inline-flex!important;
+  align-items:center!important;
+  min-height:38px!important;
+  padding:8px 12px!important;
+  border:3px solid var(--outline-bright)!important;
+  background:rgba(255,255,255,.055)!important;
+  box-shadow:4px 4px 0 rgba(3,7,12,.5)!important;
+  text-decoration:none!important;
+  color:#fff!important;
+}
+.subpage-toolbar a:hover{
+  background:rgba(140,152,189,.18)!important;
+  transform:translate(-1px,-1px)!important;
+}
