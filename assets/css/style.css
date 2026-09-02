@@ -629,3 +629,92 @@ footer::before,.site-footer::before{
     transform:none!important;
   }
 }
+
+
+/* ================= V11.6: decor sizing + static heart + restore window buttons ================= */
+
+/* Shared red heart is intentionally static. */
+.section-decor-image[src$="decor-heart.png"],
+.page-decor-image[src$="decor-heart.png"],
+.status-decor[src$="decor-heart.png"]{
+  animation:none!important;
+  transform:none!important;
+  will-change:auto!important;
+}
+
+/* Let large page decorations use their natural aspect ratio and make fuller use
+   of the empty space beside headings instead of being forced into a small box. */
+.page-hero-grid{
+  grid-template-columns:minmax(0,1fr) minmax(220px,420px)!important;
+  gap:34px!important;
+  align-items:center!important;
+}
+
+.page-decor-image{
+  width:min(100%,420px)!important;
+  height:auto!important;
+  max-width:420px!important;
+  max-height:320px!important;
+  object-fit:contain!important;
+  justify-self:center!important;
+  align-self:center!important;
+}
+
+/* Main directory/page decor (e.g. Other) can be a little larger and less
+   pinned to the far-right edge. */
+.decor-heading .section-decor-image{
+  width:auto!important;
+  max-width:220px!important;
+  max-height:160px!important;
+  margin-right:clamp(0px,2vw,22px)!important;
+  object-fit:contain!important;
+}
+
+/* Keep smaller shared-heart decorations modest. */
+.section-decor-image[src$="decor-heart.png"]{
+  max-width:105px!important;
+  max-height:82px!important;
+  margin-right:0!important;
+}
+
+/* Restore the three decorative window buttons on category/info/status title bars.
+   The text pseudo-element remains disabled. */
+.category-card::before,
+.info-card::before,
+.status-panel::before{
+  background-color:var(--header-fill)!important;
+  background-image:
+    url('../images/window-close.png'),
+    url('../images/window-maximise.png'),
+    url('../images/window-minimise.png')!important;
+  background-repeat:no-repeat!important;
+  background-size:14px 14px,14px 14px,14px 14px!important;
+  background-position:
+    calc(100% - 12px) center,
+    calc(100% - 34px) center,
+    calc(100% - 56px) center!important;
+}
+
+/* Absolutely no old title text such as GALLERY.WIN / INFO.TXT / STATUS.EXE. */
+.category-card::after,
+.info-card::after,
+.status-panel::after{
+  content:none!important;
+  display:none!important;
+}
+
+@media(max-width:760px){
+  .page-hero-grid{
+    grid-template-columns:1fr!important;
+  }
+  .page-decor-image{
+    justify-self:center!important;
+    max-width:min(86vw,360px)!important;
+    max-height:260px!important;
+  }
+  .decor-heading .section-decor-image{
+    max-width:150px!important;
+    max-height:115px!important;
+    margin-right:0!important;
+  }
+}
