@@ -2,146 +2,262 @@
 
 Personal art portfolio and commission site by **@celerku**. Artwork © @celerku unless otherwise credited. Please do not repost, redistribute or reuse artwork without permission.
 
-## EXACT IMAGE NAMES / WHERE TO UPLOAD THEM
+# Editable Site Images
 
-GitHub filenames are case-sensitive. Use these names **exactly**. Do not add spaces, `(1)`, capitals, or change `.png` / `.jpg`.
+These are the decorative/site images that can be replaced without changing the website code.
 
-### Main site images — `assets/images/`
-- `cover.jpg` — darkened background cover used behind page headers
-- `hero-decor.png` — image to the right of “art made pixel by pixel.” on the homepage; shown by itself with no window frame
-- `site-icon.png` — small icon in the top-left beside `cel_`
-- `window-minimise.png` — cute icon for the first fake window button
-- `window-maximise.png` — cute icon for the second fake window button
-- `window-close.png` — cute icon for the third fake window button
+IMPORTANT:
+- Keep the filename exactly the same.
+- Capitalisation matters.
+- Upload the replacement into the exact folder listed.
+- Replace the existing file rather than adding it somewhere else.
+- Gallery artwork is handled separately through the Bulk Art Manager.
 
-### Page-heading decorations — `assets/images/page-decor/`
-These sit to the right of the big heading on each page. They are optional: if a file is missing, that image slot hides itself.
-- `pixel-art.png`
-- `premades.png`
-- `information.png`
-- `other.png`
-- `commissioned-artists.png`
-- `oc-fanart.png`
-- `my-ocs.png`
-- `random-art.png`
-- `digital-commissions.png`
+---
 
-### Smaller section decorations — `assets/images/section-decor/`
-Homepage:
-- `home-explore.png`
-- `home-commissions.png`
+## Main Site Assets
 
-Pixel Art subsections:
-- `pixel-static-custom.png`
-- `pixel-food-series.png`
-- `pixel-spinning.png`
-- `pixel-wiggly.png`
-- `pixel-simple-animated.png`
-- `pixel-custom-animated.png`
-- `pixel-sprites.png`
-- `pixel-pixel-headshots.png`
+### Site icon
 
-Information sections:
-- `info-terms.png`
-- `info-pricing.png`
-- `info-faq.png`
+Filename:
+`site-icon.png`
 
-### Gallery artwork
-Upload only web-safe/watermarked copies.
-- Pixel art: `assets/art-web/`
-- Other/non-pixel art: `assets/art-web/other/`
+Location:
+`assets/images/site-icon.png`
 
-Do **not** upload clean master artwork to this public repository.
+Used for:
+The small icon beside `cel_` in the top-left header on the main site pages.
 
+Recommended:
+Small square/near-square image, preferably PNG with transparency.
 
-## V6 — Pixel Art directory example images
-Upload these optional example images to `assets/images/pixel-directory/` using the exact names below. They automatically scale down to fit the webpage.
+---
 
-- `static-custom.png`
-- `food-series.png`
-- `spinning.png`
-- `wiggly.png`
-- `simple-animated.png`
-- `custom-animated.png`
-- `sprites.png`
-- `pixel-headshots.png`
+### Homepage hero decoration
 
-Each Pixel Art category now has its own HTML page:
-- `static-custom.html`
-- `food-series.html`
-- `spinning.html`
-- `wiggly.html`
-- `simple-animated.html`
-- `custom-animated.html`
-- `sprites.html`
-- `pixel-headshots.html`
+Filename:
+`hero-decor.png`
 
-The `pixel-art.html` page is only the directory.
+Location:
+`assets/images/hero-decor.png`
 
+Used for:
+The large floating decorative artwork beside:
 
-## V6 — Pixel Art directory example images
-Upload these optional example images to `assets/images/pixel-directory/` using the exact names below. They automatically scale down to fit the webpage.
+`art made pixel by pixel.`
 
-- `static-custom.png`
-- `food-series.png`
-- `spinning.png`
-- `wiggly.png`
-- `simple-animated.png`
-- `custom-animated.png`
-- `sprites.png`
-- `pixel-headshots.png`
+Notes:
+- Does NOT need to be square.
+- The site scales it to fit the available space.
+- Keeps its natural aspect ratio.
+- Has the floating/bobbing animation.
 
-Each Pixel Art category now has its own HTML page:
-- `static-custom.html`
-- `food-series.html`
-- `spinning.html`
-- `wiggly.html`
-- `simple-animated.html`
-- `custom-animated.html`
-- `sprites.html`
-- `pixel-headshots.html`
+---
 
-The `pixel-art.html` page is only the directory.
+### Main cover/background
 
+Filename:
+`cover.jpg`
 
-## V8 — Pixel Art directory
-`pixel-art.html` now works like the `Other` directory: it shows simple category windows. Clicking a category opens its dedicated page.
+Location:
+`assets/images/cover.jpg`
 
-Dedicated Pixel Art pages remain:
-- `static-custom.html`
-- `food-series.html`
-- `spinning.html`
-- `wiggly.html`
-- `simple-animated.html`
-- `custom-animated.html`
-- `sprites.html`
-- `pixel-headshots.html`
+Used for:
+Large darkened cover/header backgrounds.
 
-## V8 typography
-- Headings, navigation and UI labels: **Press Start 2P**
-- Paragraph/body text: **DotGothic16**
+Notes:
+The site automatically places a dark overlay over it so white text remains readable.
 
-## V8 art protection
-The site intercepts right-clicks and image dragging on gallery art, enlarged viewers and displayed image assets. This is a deterrent only; anything shown in a browser can still be screenshotted or retrieved by a determined visitor.
+---
 
-## V8 scroll animation
-Cards and sections fade in when they enter the viewport and fade out after they leave, so the effect works when scrolling both down and back up.
+## Fake Window Buttons
 
+These are decorative only.
 
-## V10 visual notes
+Location:
+`assets/images/`
 
-The site background now uses sparse pixel stars and occasional shooting stars instead of rain. No image asset is required for this effect. Window cards use hard pixel shadows, small retro title labels, an active navigation state, and a more deliberate footer/status area.
+Filenames:
 
+`window-minimise.png`
 
-## V10.1 mobile menu
+`window-maximise.png`
 
-The mobile menu button now toggles closed correctly. It also closes after selecting a page, tapping outside the menu, pressing Escape, or resizing back to desktop.
+`window-close.png`
 
+Used for:
+The little fake desktop-window controls.
 
-## V11 additions
+The old `GALLERY.WIN`, `INFO.TXT`, `STATUS.EXE`, etc. text labels are no longer used.
 
-- `frame-helper.html` is the Frame Helper page and is linked in the top navigation.
-- Information order is now: **1. Prices, 2. Terms & Conditions, 3. FAQ**.
-- All three Information sections are collapsible.
-- FAQ contains 10 editable question/answer pairs.
-- The mobile menu button toggles between `☰` and `×` and can be closed by tapping it again, choosing a link, tapping outside, or pressing Escape.
+---
+
+# Main Page Decorations
+
+Location:
+
+`assets/images/page-decor/`
+
+These are the larger images shown beside the main page headings.
+
+---
+
+### Pixel Art directory
+
+Filename:
+`pixel-art.png`
+
+Location:
+`assets/images/page-decor/pixel-art.png`
+
+---
+
+### Premades
+
+Filename:
+`premades.png`
+
+Location:
+`assets/images/page-decor/premades.png`
+
+---
+
+### Information
+
+Filename:
+`information.png`
+
+Location:
+`assets/images/page-decor/information.png`
+
+---
+
+### Other directory
+
+Filename:
+`other.png`
+
+Location:
+`assets/images/page-decor/other.png`
+
+Notes:
+This can be a larger/non-square image. The website scales it to fit the available heading space.
+
+---
+
+## Other Subpages
+
+The individual pages under Other do NOT need decorative heading images.
+
+These pages intentionally have no separate page decoration:
+
+- Commissioned Avatar Artists
+- OC Fanart
+- My OCs
+- Random Art
+- Digital Commissions
+
+The main `Other` directory may still use:
+
+`assets/images/page-decor/other.png`
+
+---
+
+# Shared Small Heart Decoration
+
+The homepage and Information page share ONE image instead of requiring duplicate files.
+
+Filename:
+
+`decor-heart.png`
+
+Location:
+
+`assets/images/section-decor/decor-heart.png`
+
+This ONE file is reused for:
+
+- Homepage Explore section
+- Homepage Commission Status section
+- Information → Prices
+- Information → Terms & Conditions
+- Information → FAQ
+
+Notes:
+- This image does NOT float/bounce.
+- Replace only `decor-heart.png`; there is no need to create five copies.
+
+---
+
+# Pixel Art Subpage Decorations
+
+Location:
+
+`assets/images/section-decor/`
+
+These are GIF files and may be animated.
+
+### Static Custom
+`pixel-static-custom.gif`
+
+### Food Series
+`pixel-food-series.gif`
+
+### Spinning
+`pixel-spinning.gif`
+
+### Wiggly
+`pixel-wiggly.gif`
+
+### Simple Animated
+`pixel-simple-animated.gif`
+
+### Custom Animated
+`pixel-custom-animated.gif`
+
+### Sprites
+`pixel-sprites.gif`
+
+### Pixel Headshots
+`pixel-pixel-headshots.gif`
+
+Full paths:
+
+`assets/images/section-decor/pixel-static-custom.gif`
+
+`assets/images/section-decor/pixel-food-series.gif`
+
+`assets/images/section-decor/pixel-spinning.gif`
+
+`assets/images/section-decor/pixel-wiggly.gif`
+
+`assets/images/section-decor/pixel-simple-animated.gif`
+
+`assets/images/section-decor/pixel-custom-animated.gif`
+
+`assets/images/section-decor/pixel-sprites.gif`
+
+`assets/images/section-decor/pixel-pixel-headshots.gif`
+
+Notes:
+The browser plays animated GIFs automatically.
+
+---
+
+# Artwork vs Decorative Assets
+
+Decorative images listed above are replaced manually through GitHub.
+
+Actual gallery artwork should NOT be manually wired into the HTML.
+
+Gallery artwork will be managed using:
+
+`BULK-ART-MANAGER.html`
+
+The manager generates:
+
+`assets/art-web/...`
+
+`assets/js/art-data.js`
+
+`assets/js/other-data.js`
