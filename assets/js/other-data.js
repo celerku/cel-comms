@@ -24,5 +24,21 @@ const OTHER_ART = [
   { page:"my-ocs", title:"Nectar Redraw", file:"other/my-ocs/21.png", artist:"", dimensions:"1280 × 1326 px", nativeWidth:1280, nativeHeight:1326, copyable:false, description:"Joji <3" },
   { page:"my-ocs", title:"hehehaha", file:"other/my-ocs/22.gif", artist:"", dimensions:"600 × 600 px", nativeWidth:600, nativeHeight:600, copyable:false, description:"" },
   { page:"my-ocs", title:"Eye Shot", file:"other/my-ocs/23.jpg", artist:"", dimensions:"1051 × 1106 px", nativeWidth:1051, nativeHeight:1106, copyable:false, description:"" },
-  { page:"my-ocs", title:"Old Chibi Design", file:"other/my-ocs/24.png", artist:"", dimensions:"366 × 700 px", nativeWidth:366, nativeHeight:700, copyable:false, description:"one of the oldest designs I have of her. " }
+  { page:"my-ocs", title:"Old Chibi Design", file:"other/my-ocs/24.png", artist:"", dimensions:"366 × 700 px", nativeWidth:366, nativeHeight:700, copyable:false, description:"one of the oldest designs I have of her. " },
+  { page:"random-art", title:"2025", file:"other/random-art/1.jpg", artist:"", dimensions:"1198 × 1198 px", nativeWidth:1198, nativeHeight:1198, copyable:false, description:"" },
+  { page:"random-art", title:"2024", file:"other/random-art/2.png", artist:"", dimensions:"900 × 1198 px", nativeWidth:900, nativeHeight:1198, copyable:false, description:"Me when I play roblox" },
+  { page:"random-art", title:"OneNote Sketch", file:"other/random-art/3.jpg", artist:"", dimensions:"1082 × 1198 px", nativeWidth:1082, nativeHeight:1198, copyable:false, description:"Microsoft OneNote" },
+  { page:"random-art", title:"Hatsune Miku 2024 New Year", file:"other/random-art/4.png", artist:"", dimensions:"990 × 990 px", nativeWidth:990, nativeHeight:990, copyable:false, description:"" },
+  { page:"random-art", title:"Art Study, 2026", file:"other/random-art/5.jpg", artist:"", dimensions:"1280 × 1660 px", nativeWidth:1280, nativeHeight:1660, copyable:false, description:"1.5 hours." },
+  { page:"random-art", title:"2023, PostKnights 2 Favart", file:"other/random-art/6.png", artist:"", dimensions:"702 × 700 px", nativeWidth:702, nativeHeight:700, copyable:false, description:"Raz from PostKnights 2" },
+  { page:"random-art", title:"2024", file:"other/random-art/7.png", artist:"", dimensions:"700 × 700 px", nativeWidth:700, nativeHeight:700, copyable:false, description:"" },
+  { page:"random-art", title:"Ivan, 2024", file:"other/random-art/8.png", artist:"", dimensions:"1280 × 1275 px", nativeWidth:1280, nativeHeight:1275, copyable:false, description:"Ivan Fan Art from Alien Stage, 2024" },
+  { page:"random-art", title:"Dazai", file:"other/random-art/9.png", artist:"", dimensions:"1280 × 1277 px", nativeWidth:1280, nativeHeight:1277, copyable:false, description:"Dazai BSD Favart 2024" },
+  { page:"random-art", title:"OC Art 2024", file:"other/random-art/10.png", artist:"", dimensions:"1280 × 1326 px", nativeWidth:1280, nativeHeight:1326, copyable:false, description:"" },
+  { page:"random-art", title:"OC Art 2024", file:"other/random-art/11.png", artist:"", dimensions:"1280 × 1288 px", nativeWidth:1280, nativeHeight:1288, copyable:false, description:"" },
+  { page:"random-art", title:"Pixel Art Study ", file:"other/random-art/12.png", artist:"", dimensions:"256 × 128 px", nativeWidth:256, nativeHeight:128, copyable:false, description:"" },
+  { page:"random-art", title:"Sol Favart 2024", file:"other/random-art/13.png", artist:"", dimensions:"1280 × 1282 px", nativeWidth:1280, nativeHeight:1282, copyable:false, description:"" },
+  { page:"random-art", title:"Kanni Character Design 2026", file:"other/random-art/14.png", artist:"", dimensions:"1142 × 1500 px", nativeWidth:1142, nativeHeight:1500, copyable:false, description:"" },
+  { page:"random-art", title:"Headshot Character", file:"other/random-art/15.jpg", artist:"", dimensions:"1198 × 1198 px", nativeWidth:1198, nativeHeight:1198, copyable:false, description:"2025" },
+  { page:"random-art", title:"Pencil on Paper, 2021", file:"other/random-art/16.png", artist:"", dimensions:"1042 × 1288 px", nativeWidth:1042, nativeHeight:1288, copyable:false, description:"" }
 ];
