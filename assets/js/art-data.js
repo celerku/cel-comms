@@ -102,5 +102,18 @@ const ARTWORKS = [
   { title:"Crossu ", commissioner:"Cossu", dimensions:"52 × 52 px", nativeWidth:51, nativeHeight:52, category:"food-series", file:"pixel/food-series/26.png", copyable:true, premade:false },
   { title:"Honey Bear", commissioner:"GhostBear", dimensions:"52 × 52 px", nativeWidth:51, nativeHeight:52, category:"food-series", file:"pixel/food-series/27.png", copyable:true, premade:false },
   { title:"Burrito", commissioner:"Twisted", dimensions:"52 × 52 px", nativeWidth:51, nativeHeight:52, category:"food-series", file:"pixel/food-series/28.png", copyable:false, premade:false },
-  { title:"Touch Cabbage", commissioner:"Dang", dimensions:"52 × 52 px", nativeWidth:51, nativeHeight:52, category:"food-series", file:"pixel/food-series/29.png", copyable:true, premade:false }
+  { title:"Touch Cabbage", commissioner:"Dang", dimensions:"52 × 52 px", nativeWidth:51, nativeHeight:52, category:"food-series", file:"pixel/food-series/29.png", copyable:true, premade:false },
+  { title:"LichTwirl", commissioner:"Lichtel", dimensions:"52 × 52 px", nativeWidth:51, nativeHeight:52, category:"spinning", file:"pixel/spinning/1.gif", copyable:true, premade:false },
+  { title:"Spinning Reddibear", commissioner:"Reddington", dimensions:"52 × 52 px", nativeWidth:51, nativeHeight:52, category:"spinning", file:"pixel/spinning/2.gif", copyable:true, premade:false },
+  { title:"Spin Gostir", commissioner:"Gostir", dimensions:"52 × 52 px", nativeWidth:51, nativeHeight:52, category:"spinning", file:"pixel/spinning/3.gif", copyable:true, premade:false },
+  { title:"Spin Fern ", commissioner:"", dimensions:"52 × 52 px", nativeWidth:51, nativeHeight:52, category:"spinning", file:"pixel/spinning/4.gif", copyable:true, premade:false },
+  { title:"REK360", commissioner:"", dimensions:"52 × 52 px", nativeWidth:51, nativeHeight:52, category:"spinning", file:"pixel/spinning/5.gif", copyable:true, premade:false },
+  { title:"Spin cel", commissioner:"", dimensions:"52 × 52 px", nativeWidth:51, nativeHeight:52, category:"spinning", file:"pixel/spinning/6.gif", copyable:false, premade:false },
+  { title:"Minnie Spin", commissioner:"Minnie Astella", dimensions:"52 × 52 px", nativeWidth:51, nativeHeight:52, category:"spinning", file:"pixel/spinning/7.gif", copyable:true, premade:false },
+  { title:"Spinny Nyapa ", commissioner:"Nyapa", dimensions:"52 × 52 px", nativeWidth:51, nativeHeight:52, category:"spinning", file:"pixel/spinning/8.gif", copyable:true, premade:false },
+  { title:"Fenna Spin ", commissioner:"Fenna", dimensions:"52 × 52 px", nativeWidth:51, nativeHeight:52, category:"spinning", file:"pixel/spinning/9.gif", copyable:true, premade:false },
+  { title:"Chekistan the Dizzy Mage", commissioner:"Chekistan", dimensions:"52 × 52 px", nativeWidth:51, nativeHeight:52, category:"spinning", file:"pixel/spinning/10.gif", copyable:true, premade:false },
+  { title:"spinininy", commissioner:"cozi", dimensions:"52 × 52 px", nativeWidth:51, nativeHeight:52, category:"spinning", file:"pixel/spinning/11.gif", copyable:true, premade:false },
+  { title:"Cool Cola", commissioner:"Demo", dimensions:"52 × 52 px", nativeWidth:51, nativeHeight:52, category:"spinning", file:"pixel/spinning/12.gif", copyable:true, premade:false },
+  { title:"Spinny Pengu", commissioner:"Artic", dimensions:"52 × 52 px", nativeWidth:51, nativeHeight:52, category:"spinning", file:"pixel/spinning/13.gif", copyable:true, premade:false }
 ];
