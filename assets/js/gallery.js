@@ -18,3 +18,6 @@ function closeLightbox(){
 }
 document.querySelector('.lightbox-close')?.addEventListener('click',closeLightbox);document.querySelector('#lightbox')?.addEventListener('click',e=>{if(e.target.id==='lightbox')closeLightbox()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
 renderGalleries();
+
+// V11.15 performance
+requestAnimationFrame(()=>{document.querySelectorAll('.gallery img,.loose-gallery img').forEach(img=>{img.loading='lazy';img.decoding='async'})});

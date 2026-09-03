@@ -88,3 +88,6 @@ function closeOther(){
   },220);
 }
 document.querySelector('#other-lightbox .lightbox-close')?.addEventListener('click',closeOther);document.querySelector('#other-lightbox')?.addEventListener('click',e=>{if(e.target.id==='other-lightbox')closeOther()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeOther()});
+
+// V11.15 performance
+requestAnimationFrame(()=>{document.querySelectorAll('.gallery img,.loose-gallery img').forEach(img=>{img.loading='lazy';img.decoding='async'})});
