@@ -155,7 +155,7 @@ const ARTWORKS = [
   { title:"Comedic Heartbreak", commissioner:"", dimensions:"52 × 52 px", nativeWidth:51, nativeHeight:52, category:"custom-animated", file:"pixel/custom-animated/19.gif", copyable:true, premade:false },
   { title:"Violet Reverie", commissioner:"Alucard", dimensions:"52 × 52 px", nativeWidth:51, nativeHeight:52, category:"custom-animated", file:"pixel/custom-animated/20.gif", copyable:true, premade:false },
   { title:"cel", commissioner:"", dimensions:"52 × 52 px", nativeWidth:51, nativeHeight:52, category:"custom-animated", file:"pixel/custom-animated/21.gif", copyable:true, premade:false },
-  { title:"Cottontail", commissioner:"Chain Warden", dimensions:"52 × 52 px", nativeWidth:52, nativeHeight:52, category:"static-custom", file:"pixel/static-custom/1.gif", copyable:true, premade:false },
+  { title:"Cottontail", commissioner:"Chain Warden", dimensions:"52 × 52 px", nativeWidth:52, nativeHeight:52, category:"wiggly", file:"pixel/static-custom/1.gif", copyable:true, premade:false },
   { title:"REK Dance V2", commissioner:"", dimensions:"52 × 52 px", nativeWidth:51, nativeHeight:52, category:"static-custom", file:"pixel/static-custom/2.gif", copyable:true, premade:false },
   { title:"Just A Normal Girl", commissioner:"Tuna", dimensions:"52 × 52 px", nativeWidth:51, nativeHeight:52, category:"static-custom", file:"pixel/static-custom/3.gif", copyable:true, premade:false },
   { title:"Brief Respite", commissioner:"", dimensions:"52 × 52 px", nativeWidth:51, nativeHeight:52, category:"static-custom", file:"pixel/static-custom/4.gif", copyable:true, premade:false },
