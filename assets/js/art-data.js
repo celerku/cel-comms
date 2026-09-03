@@ -220,5 +220,6 @@ const ARTWORKS = [
   { title:"Chest of New Bramp", commissioner:"", dimensions:"34 × 34 px", nativeWidth:34, nativeHeight:34, category:"sprites", file:"pixel/sprites/51.gif", copyable:true, premade:false },
   { title:"Chest of Holbeck", commissioner:"", dimensions:"34 × 34 px", nativeWidth:34, nativeHeight:34, category:"sprites", file:"pixel/sprites/52.gif", copyable:true, premade:false },
   { title:"Chest of Dragontail", commissioner:"", dimensions:"34 × 34 px", nativeWidth:34, nativeHeight:34, category:"sprites", file:"pixel/sprites/53.gif", copyable:true, premade:false },
-  { title:"Chest of Arkhan", commissioner:"", dimensions:"34 × 34 px", nativeWidth:34, nativeHeight:34, category:"sprites", file:"pixel/sprites/54.gif", copyable:true, premade:false }
+  { title:"Chest of Arkhan", commissioner:"", dimensions:"34 × 34 px", nativeWidth:34, nativeHeight:34, category:"sprites", file:"pixel/sprites/54.gif", copyable:true, premade:false },
+  { title:"REK (Ver. M)", commissioner:"", dimensions:"64 × 64 px", nativeWidth:64, nativeHeight:64, category:"pixel-headshots", file:"pixel/pixel-headshots/6.png", copyable:false, premade:false }
 ];
