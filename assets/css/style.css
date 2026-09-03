@@ -979,3 +979,12 @@ footer::before,.site-footer::before{
     transform:none!important;
   }
 }
+
+/* V11.15 performance */
+.art-card,.loose-piece{content-visibility:auto;contain-intrinsic-size:320px 360px}
+.art-viewer,.art-card,.loose-piece{contain:layout paint}
+.lightbox .art-viewer,#other-lightbox .art-viewer{will-change:transform,opacity}
+.site-header{backdrop-filter:blur(9px) saturate(110%)!important;-webkit-backdrop-filter:blur(9px) saturate(110%)!important}
+.page-decor-slot,.hero-decor{content-visibility:auto;contain-intrinsic-size:320px 320px}
+.global-rain i{filter:none!important}
+@media(max-width:1180px){.site-header{backdrop-filter:blur(6px)!important;-webkit-backdrop-filter:blur(6px)!important}}
